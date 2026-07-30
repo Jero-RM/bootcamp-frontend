@@ -1,0 +1,129 @@
+<!-- Declare the Doctype of an HTML Document -->
+<!doctype html>
+<!-- Define the Head and Body of an HTML Document -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>CatPhotoApp</title>
+  </head>
+  <body>
+    <!-- Say Hello to HTML Elements -->
+    <h1>Hello World</h1>
+
+    <!-- Headline with the h2 Element -->
+    <h2>CatPhotoApp</h2>
+
+    <!-- Uncomment HTML -->
+    <!-- This paragraph was originally wrapped in an HTML comment tag -->
+    <!-- and had to be uncommented so it would render on the page. -->
+    <p>Cats rule, dogs drool.</p>
+
+    <!-- Inform with the Paragraph Element -->
+    <!-- Fill in the Blank with Placeholder Text -->
+    <!-- Link to External Pages with Anchor Elements -->
+    <!-- Nest an Anchor Element within a Paragraph -->
+    <!-- Make Dead Links Using the Hash Symbol -->
+    <p>
+      Kitty ipsum dolor sit amet, <a href="#">cat photos</a> a diam maecenas sed
+      enim ut sem.
+    </p>
+
+    <!-- Comment out HTML -->
+    <!-- <p>This paragraph was commented out and no longer renders on the page.</p> -->
+
+    <!-- Delete HTML Elements -->
+    <!-- The redundant duplicate paragraph that used to be here was deleted -->
+    <!-- instead of just commented out. -->
+
+    <!-- Introduction to HTML5 Elements -->
+    <main>
+      <!-- Add Images to Your Website -->
+      <!-- Turn an Image into a Link -->
+      <a href="#">
+        <img
+          src="https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg"
+          alt="A cute orange cat lying on its back."
+        />
+      </a>
+
+      <!-- Create a Bulleted Unordered List -->
+      <p>Things cats love:</p>
+      <ul>
+        <li>cat nip</li>
+        <li>laser pointers</li>
+        <li>lasagna</li>
+      </ul>
+
+      <!-- Create an Ordered List -->
+      <p>Top 3 things cats hate:</p>
+      <ol>
+        <li>flea treatment</li>
+        <li>thunder</li>
+        <li>other cats</li>
+      </ol>
+
+      <!-- Nest Many Elements within a Single div Element -->
+      <div>
+        <!-- Create a Form Element -->
+        <form action="https://freecatphotoapp.com/submit-cat-photo">
+          <!-- Create a Set of Radio Buttons -->
+          <!-- Use the value attribute with Radio Buttons and Checkboxes -->
+          <!-- Check Radio Buttons and Checkboxes by Default -->
+          <fieldset>
+            <legend>Is your cat an indoor or outdoor cat?</legend>
+            <label
+              ><input
+                type="radio"
+                name="indoor-outdoor"
+                value="indoor"
+                checked
+              />
+              Indoor</label
+            >
+            <label
+              ><input type="radio" name="indoor-outdoor" value="outdoor" />
+              Outdoor</label
+            >
+          </fieldset>
+
+          <!-- Create a Set of Checkboxes -->
+          <fieldset>
+            <legend>What's your cat's personality?</legend>
+            <label
+              ><input
+                type="checkbox"
+                name="personality"
+                value="loving"
+                checked
+              />
+              Loving</label
+            >
+            <label
+              ><input type="checkbox" name="personality" value="lazy" />
+              Lazy</label
+            >
+            <label
+              ><input type="checkbox" name="personality" value="energetic" />
+              Energetic</label
+            >
+          </fieldset>
+
+          <!-- Create a Text Field -->
+          <!-- Add Placeholder Text to a Text Field -->
+          <!-- Use HTML5 to Require a Field -->
+          <input type="text" placeholder="cat photo URL" required />
+
+          <!-- Add a Submit Button to a Form -->
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </main>
+
+    <!-- Link to Internal Sections of a Page with Anchor Elements -->
+    <a href="#footer">Jump to Bottom</a>
+
+    <footer id="footer">
+      <p>&copy; 2026 freeCodeCamp exercises by Jero Rm</p>
+    </footer>
+  </body>
+</html>
