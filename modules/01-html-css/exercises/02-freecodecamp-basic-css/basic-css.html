@@ -1,0 +1,929 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Basic CSS - freeCodeCamp examples</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+
+      /* Global CSS variables: declared once here, reused anywhere with var(--name). */
+      :root {
+        --demo-shared: rebeccapurple;
+        --penguin-size: 300px;
+        --penguin-skin: gray;
+        --penguin-belly: white;
+        --penguin-beak: orange;
+      }
+
+      /* Styling the body sets a default for the whole page: font, background, etc. */
+      /* Every element below inherits font-family from here unless it says otherwise. */
+      body {
+        font-family: sans-serif;
+        background-color: #f4f6f8;
+        padding: 20px;
+      }
+
+      h1 {
+        text-align: center;
+      }
+
+      /* Just page "chrome" so each exercise reads as its own separated card. */
+      .lesson {
+        background: #fff;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 20px;
+        margin: 20px auto;
+        max-width: 700px;
+      }
+
+      .lesson h3 {
+        margin-top: 0;
+      }
+
+      /* ===== Change the Color of Text ===== */
+      /* The `color` property changes an element's text color. */
+      .demo-color-text {
+        color: blue;
+      }
+
+      /* ===== Use CSS Selectors to Style Elements ===== */
+      /* A type/element selector (no dot, no #) targets every matching tag, */
+      /* here every <h4> that is inside .demo-selectors. */
+      .demo-selectors h4 {
+        color: purple;
+      }
+
+      /* ===== Use a CSS Class to Style an Element ===== */
+      /* The dot (.) selects elements by their class="" attribute. */
+      .demo-class {
+        color: green;
+        font-weight: bold;
+      }
+
+      /* ===== Style Multiple Elements with a CSS Class ===== */
+      /* The same class can be reused on as many elements as you want. */
+      .demo-multi {
+        color: teal;
+      }
+
+      /* ===== Change the Font Size of an Element ===== */
+      .demo-font-size {
+        font-size: 28px;
+      }
+
+      /* ===== Set the Font Family of an Element ===== */
+      .demo-font-family {
+        font-family: Georgia, serif;
+      }
+
+      /* ===== Import a Google Font ===== */
+      /* The font itself is pulled from Google's servers via @import at the top */
+      /* of this stylesheet, then used here like any other font-family. */
+      .demo-google-font {
+        font-family: "Lobster", monospace;
+      }
+
+      /* ===== Specify How Fonts Should Degrade ===== */
+      /* The browser tries each font left to right. The last value should always */
+      /* be a generic family (serif, sans-serif, monospace...) as a safety net */
+      /* in case none of the named fonts are available. */
+      .demo-font-stack {
+        font-family: Helvetica, Arial, sans-serif;
+      }
+
+      /* ===== Size Your Images ===== */
+      /* width controls how big the image renders; height scales automatically */
+      /* to keep its proportions. */
+      .demo-image-size {
+        width: 150px;
+      }
+
+      /* ===== Add Borders Around Your Elements ===== */
+      /* Shorthand for border-width, border-style and border-color together. */
+      .demo-border {
+        border: 5px solid black;
+        width: 150px;
+      }
+
+      /* ===== Add Rounded Corners with border-radius ===== */
+      .demo-border-radius {
+        border: 5px solid black;
+        border-radius: 15px;
+        width: 150px;
+      }
+
+      /* ===== Make Circular Images with a border-radius ===== */
+      /* A high enough radius (50%) on a square element turns it into a circle. */
+      .demo-circle {
+        border-radius: 50%;
+        width: 120px;
+      }
+
+      /* ===== Give a Background Color to a div Element ===== */
+      .demo-div-bg {
+        background-color: lightblue;
+        padding: 10px;
+      }
+
+      /* ===== Use an id Attribute to Style an Element ===== */
+      /* An id (#) is meant for one unique element on the page, set in the HTML */
+      /* with id="demo-unique-id" and then targeted here with #demo-unique-id. */
+      #demo-unique-id {
+        color: orange;
+        font-weight: bold;
+      }
+
+      /* ===== Adjust the Padding of an Element ===== */
+      /* padding = space INSIDE the element, between its border and its content. */
+      .demo-padding {
+        padding: 25px;
+        background: #eee;
+      }
+
+      /* ===== Adjust the Margin of an Element ===== */
+      /* margin = space OUTSIDE the element, pushing its neighbors away. */
+      .demo-margin {
+        margin: 25px;
+        background: #eee;
+        padding: 10px;
+      }
+
+      /* ===== Add a Negative Margin to an Element ===== */
+      /* A negative margin pulls the element in that direction, even overlapping */
+      /* other elements. */
+      .demo-negative-margin {
+        margin-top: -15px;
+        background: #eee;
+        padding: 10px;
+      }
+
+      /* ===== Add Different Padding to Each Side of an Element ===== */
+      .demo-padding-sides {
+        padding-top: 5px;
+        padding-right: 40px;
+        padding-bottom: 20px;
+        padding-left: 10px;
+        background: #eee;
+      }
+
+      /* ===== Add Different Margins to Each Side of an Element ===== */
+      .demo-margin-sides {
+        margin-top: 5px;
+        margin-right: 40px;
+        margin-bottom: 20px;
+        margin-left: 10px;
+        background: #eee;
+        padding: 10px;
+      }
+
+      /* ===== Use Clockwise Notation to Specify the Padding of an Element ===== */
+      /* Shorthand order is always: top, right, bottom, left (clockwise from 12). */
+      /* This one line is equivalent to the four padding-* lines above. */
+      .demo-padding-clockwise {
+        padding: 5px 40px 20px 10px;
+        background: #eee;
+      }
+
+      /* ===== Use Clockwise Notation to Specify the Margin of an Element ===== */
+      .demo-margin-clockwise {
+        margin: 5px 40px 20px 10px;
+        background: #eee;
+        padding: 10px;
+      }
+
+      /* ===== Use Attribute Selectors to Style Elements ===== */
+      /* [type="radio"] targets elements by an HTML attribute, regardless of */
+      /* their class or id. */
+      .demo-attr-selector input[type="radio"] {
+        margin: 8px;
+        transform: scale(1.5);
+      }
+
+      /* ===== Understand Absolute versus Relative Units ===== */
+      /* px is a fixed/absolute size. em is relative to the parent's font-size, */
+      /* so 2em here means "2x the size of .demo-units' own font-size". */
+      .demo-units {
+        font-size: 16px;
+      }
+
+      .demo-units-em {
+        font-size: 2em;
+      }
+
+      /* ===== Prioritize One Style Over Another ===== */
+      /* When two rules have the SAME specificity (both are plain classes here), */
+      /* the one declared LAST in the stylesheet wins - this rule overrides the */
+      /* one above it for the same element. */
+      .demo-priority-order {
+        color: red;
+      }
+
+      .demo-priority-order {
+        color: blue;
+      }
+
+      /* ===== Override Styles in Subsequent CSS ===== */
+      /* An element can carry several classes at once. Specificity is still tied */
+      /* between them, so again the class declared later in the file wins - */
+      /* order in the class="" attribute doesn't matter. */
+      .demo-override-a {
+        color: red;
+      }
+
+      .demo-override-b {
+        color: green;
+      }
+
+      /* ===== Override Class Declarations by Styling ID Attributes ===== */
+      /* An id selector is more specific than a class selector, so it wins */
+      /* regardless of the order they're written in. */
+      .demo-id-vs-class {
+        color: red;
+      }
+
+      #demo-id-wins {
+        color: blue;
+      }
+
+      /* ===== Override All Other Styles by using Important ===== */
+      /* !important beats everything else, including inline styles. Use it very */
+      /* sparingly - it makes styles harder to override later on. */
+      .demo-important {
+        color: red !important;
+      }
+
+      /* ===== Use Hex Code for Specific Colors ===== */
+      /* A 6-digit hex code: two digits each for red, green and blue. */
+      .demo-hex {
+        background-color: #0000ff;
+      }
+
+      /* ===== Use Hex Code to Mix Colors ===== */
+      /* Adjusting the digits blends the channels into new colors. */
+      .demo-hex-mix {
+        background-color: #c89f5c;
+      }
+
+      /* ===== Use Abbreviated Hex Code ===== */
+      /* A 3-digit shorthand where each digit is doubled: #F00 = #FF0000. */
+      .demo-hex-short {
+        background-color: #f00;
+      }
+
+      /* ===== Use RGB values to Color Elements ===== */
+      /* Same idea as hex, but as three numbers from 0-255. */
+      .demo-rgb {
+        background-color: rgb(0, 0, 255);
+      }
+
+      /* ===== Use RGB to Mix Colors ===== */
+      .demo-rgb-mix {
+        background-color: rgb(200, 100, 30);
+      }
+
+      /* ===== Use CSS Variables to change several elements at once ===== */
+      /* Both elements below read from the same --demo-shared variable (declared */
+      /* in :root), so changing that one value updates both at once. */
+      .demo-shared-a,
+      .demo-shared-b {
+        color: var(--demo-shared);
+      }
+
+      /* ===== Create a custom CSS Variable ===== */
+      /* A variable can also be declared locally, on any selector, not just :root. */
+      /* Its scope is limited to that selector and its children. */
+      .demo-var-scope {
+        --local-color: darkorange;
+        color: var(--local-color);
+        font-weight: bold;
+      }
+
+      /* ===== Use a custom CSS Variable ===== */
+      /* Reusing the --demo-shared variable created earlier, with var(). */
+      .demo-var-use {
+        color: var(--demo-shared);
+        font-weight: bold;
+      }
+
+      /* ===== Attach a Fallback value to a CSS Variable ===== */
+      /* var(--name, fallback) uses "fallback" if --undefined-var was never set. */
+      .demo-var-fallback {
+        color: var(--undefined-var, crimson);
+      }
+
+      /* ===== Improve Compatibility with Browser Fallbacks ===== */
+      /* Declaring the plain property FIRST means very old browsers that ignore */
+      /* var() entirely still get a usable color; the var() line then overrides */
+      /* it for modern browsers that do support variables. */
+      .demo-browser-fallback {
+        background-color: pink;
+        background-color: var(--demo-shared);
+        color: white;
+        padding: 10px;
+      }
+
+      /* ===== Inherit CSS Variables ===== */
+      /* Variables cascade down the DOM tree like normal properties: the <p> */
+      /* inside .demo-var-inherit-parent picks up --inherited-color automatically. */
+      .demo-var-inherit-parent {
+        --inherited-color: seagreen;
+      }
+
+      .demo-var-inherit-parent p {
+        color: var(--inherited-color);
+      }
+
+      /* ===== Change a variable for a specific area ===== */
+      /* Redeclaring --demo-shared inside this class only affects elements */
+      /* inside it, without touching the global value used elsewhere on the page. */
+      .demo-var-local-scope {
+        --demo-shared: hotpink;
+      }
+
+      /* ===== Use a media query to change a variable (Penguin project) ===== */
+      @media (max-width: 350px) {
+        :root {
+          /* On narrow screens the penguin shrinks, since .penguin's width/height */
+          /* both read from this same --penguin-size variable. */
+          --penguin-size: 200px;
+        }
+      }
+
+      .penguin-box {
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 20px;
+        background: #c6faf1;
+      }
+
+      .penguin {
+        position: relative;
+        margin: auto;
+        display: block;
+        margin-top: 5%;
+        width: var(--penguin-size, 300px);
+        height: var(--penguin-size, 300px);
+      }
+
+      .right-cheek {
+        top: 15%;
+        left: 35%;
+        background: var(--penguin-belly, white);
+        width: 60%;
+        height: 70%;
+        border-radius: 70% 70% 60% 60%;
+      }
+
+      .left-cheek {
+        top: 15%;
+        left: 5%;
+        background: var(--penguin-belly, white);
+        width: 60%;
+        height: 70%;
+        border-radius: 70% 70% 60% 60%;
+      }
+
+      .belly {
+        top: 60%;
+        left: 2.5%;
+        background: var(--penguin-belly, white);
+        width: 95%;
+        height: 100%;
+        border-radius: 120% 120% 100% 100%;
+      }
+
+      .penguin-top {
+        top: 10%;
+        left: 25%;
+        background: var(--penguin-skin, gray);
+        width: 50%;
+        height: 45%;
+        border-radius: 70% 70% 60% 60%;
+      }
+
+      .penguin-bottom {
+        top: 40%;
+        left: 23.5%;
+        background: var(--penguin-skin, gray);
+        width: 53%;
+        height: 45%;
+        border-radius: 70% 70% 100% 100%;
+      }
+
+      .right-hand {
+        top: 5%;
+        left: 25%;
+        background: var(--penguin-skin, black);
+        width: 30%;
+        height: 60%;
+        border-radius: 30% 30% 120% 30%;
+        transform: rotate(130deg);
+        z-index: -1;
+        animation-duration: 3s;
+        animation-name: wave;
+        animation-iteration-count: infinite;
+        transform-origin: 0% 0%;
+        animation-timing-function: linear;
+      }
+
+      @keyframes wave {
+        10% {
+          transform: rotate(110deg);
+        }
+        20% {
+          transform: rotate(130deg);
+        }
+        30% {
+          transform: rotate(110deg);
+        }
+        40% {
+          transform: rotate(130deg);
+        }
+      }
+
+      .left-hand {
+        top: 0%;
+        left: 75%;
+        background: var(--penguin-skin, gray);
+        width: 30%;
+        height: 60%;
+        border-radius: 30% 30% 30% 120%;
+        transform: rotate(-45deg);
+        z-index: -1;
+      }
+
+      .right-feet {
+        top: 85%;
+        left: 60%;
+        background: var(--penguin-beak, orange);
+        width: 15%;
+        height: 30%;
+        border-radius: 50% 50% 50% 50%;
+        transform: rotate(-80deg);
+        z-index: -2222;
+      }
+
+      .left-feet {
+        top: 85%;
+        left: 25%;
+        background: var(--penguin-beak, orange);
+        width: 15%;
+        height: 30%;
+        border-radius: 50% 50% 50% 50%;
+        transform: rotate(80deg);
+        z-index: -2222;
+      }
+
+      .right-eye {
+        top: 45%;
+        left: 60%;
+        background: black;
+        width: 15%;
+        height: 17%;
+        border-radius: 50%;
+      }
+
+      .left-eye {
+        top: 45%;
+        left: 25%;
+        background: black;
+        width: 15%;
+        height: 17%;
+        border-radius: 50%;
+      }
+
+      .sparkle {
+        top: 25%;
+        left: -23%;
+        background: white;
+        width: 150%;
+        height: 100%;
+        border-radius: 50%;
+      }
+
+      .blush-right {
+        top: 65%;
+        left: 15%;
+        background: pink;
+        width: 15%;
+        height: 10%;
+        border-radius: 50%;
+      }
+
+      .blush-left {
+        top: 65%;
+        left: 70%;
+        background: pink;
+        width: 15%;
+        height: 10%;
+        border-radius: 50%;
+      }
+
+      .beak-top {
+        top: 60%;
+        left: 40%;
+        background: var(--penguin-beak, orange);
+        width: 20%;
+        height: 10%;
+        border-radius: 50%;
+      }
+
+      .beak-bottom {
+        top: 65%;
+        left: 42%;
+        background: var(--penguin-beak, orange);
+        width: 16%;
+        height: 10%;
+        border-radius: 50%;
+      }
+
+      .penguin * {
+        position: absolute;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Basic CSS - one example per exercise</h1>
+
+    <!-- The `color` property sets an element's text color. -->
+    <section class="lesson">
+      <h3>Change the Color of Text</h3>
+      <p class="demo-color-text">This text is blue.</p>
+    </section>
+
+    <!-- A type/element selector (just the tag name, no dot or #) styles every -->
+    <!-- matching element inside its scope. -->
+    <section class="lesson">
+      <h3>Use CSS Selectors to Style Elements</h3>
+      <div class="demo-selectors">
+        <h4>Styled through a type selector (targets every &lt;h4&gt; here)</h4>
+      </div>
+    </section>
+
+    <!-- The dot (.) selects elements by their class="" attribute. -->
+    <section class="lesson">
+      <h3>Use a CSS Class to Style an Element</h3>
+      <p class="demo-class">Styled using a single class selector.</p>
+    </section>
+
+    <!-- The same class can be applied to as many elements as needed. -->
+    <section class="lesson">
+      <h3>Style Multiple Elements with a CSS Class</h3>
+      <p class="demo-multi">First element with the class.</p>
+      <p class="demo-multi">Second element, same class.</p>
+    </section>
+
+    <!-- font-size controls how big the text renders. -->
+    <section class="lesson">
+      <h3>Change the Font Size of an Element</h3>
+      <p class="demo-font-size">This text is bigger than normal.</p>
+    </section>
+
+    <!-- font-family picks which typeface to use. -->
+    <section class="lesson">
+      <h3>Set the Font Family of an Element</h3>
+      <p class="demo-font-family">This text uses a serif font.</p>
+    </section>
+
+    <!-- The font is loaded from Google Fonts via @import at the top of the -->
+    <!-- stylesheet, then referenced here like any other font-family. -->
+    <section class="lesson">
+      <h3>Import a Google Font</h3>
+      <p class="demo-google-font">This text uses the imported Google Font.</p>
+    </section>
+
+    <!-- The browser tries each font left to right, ending in a generic family -->
+    <!-- (serif, sans-serif, monospace...) as a safety net. -->
+    <section class="lesson">
+      <h3>Specify How Fonts Should Degrade</h3>
+      <p class="demo-font-stack">This paragraph has a fallback font stack.</p>
+    </section>
+
+    <!-- width resizes the image; height scales automatically to keep proportions. -->
+    <section class="lesson">
+      <h3>Size Your Images</h3>
+      <img
+        class="demo-image-size"
+        src="https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg"
+        alt="A cute orange cat lying on its back."
+      />
+    </section>
+
+    <!-- border is shorthand for border-width, border-style and border-color. -->
+    <section class="lesson">
+      <h3>Add Borders Around Your Elements</h3>
+      <img
+        class="demo-border"
+        src="https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg"
+        alt="A cute orange cat lying on its back."
+      />
+    </section>
+
+    <!-- border-radius rounds the corners of an element. -->
+    <section class="lesson">
+      <h3>Add Rounded Corners with border-radius</h3>
+      <img
+        class="demo-border-radius"
+        src="https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg"
+        alt="A cute orange cat lying on its back."
+      />
+    </section>
+
+    <!-- A big enough border-radius (50%) on a square image makes it a circle. -->
+    <section class="lesson">
+      <h3>Make Circular Images with a border-radius</h3>
+      <img
+        class="demo-circle"
+        src="https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg"
+        alt="A cute orange cat lying on its back."
+      />
+    </section>
+
+    <!-- background-color fills a plain container like a div. -->
+    <section class="lesson">
+      <h3>Give a Background Color to a div Element</h3>
+      <div class="demo-div-bg">This div has a background color.</div>
+    </section>
+
+    <!-- An id (id="") marks a single, unique element in the HTML. -->
+    <section class="lesson">
+      <h3>Set the id of an Element</h3>
+      <p id="demo-unique-id">
+        This paragraph has a unique id="demo-unique-id".
+      </p>
+    </section>
+
+    <!-- id selectors (#) target that unique element, and beat class selectors -->
+    <!-- in specificity - see the "Override Class Declarations by Styling ID -->
+    <!-- Attributes" example further down. -->
+    <section class="lesson">
+      <h3>Use an id Attribute to Style an Element</h3>
+      <p>
+        The paragraph above is styled with
+        <code>#demo-unique-id { color: orange; }</code>.
+      </p>
+    </section>
+
+    <!-- padding = space INSIDE the element, between the border and the content. -->
+    <section class="lesson">
+      <h3>Adjust the Padding of an Element</h3>
+      <div class="demo-padding">This box has extra padding.</div>
+    </section>
+
+    <!-- margin = space OUTSIDE the element, pushing its neighbors away. -->
+    <section class="lesson">
+      <h3>Adjust the Margin of an Element</h3>
+      <div class="demo-margin">This box has extra margin.</div>
+    </section>
+
+    <!-- A negative margin pulls the element in that direction, even overlapping -->
+    <!-- whatever is next to it. -->
+    <section class="lesson">
+      <h3>Add a Negative Margin to an Element</h3>
+      <div class="demo-negative-margin">
+        This box has a negative top margin.
+      </div>
+    </section>
+
+    <!-- Each side (top/right/bottom/left) can get its own padding value. -->
+    <section class="lesson">
+      <h3>Add Different Padding to Each Side of an Element</h3>
+      <div class="demo-padding-sides">Different padding on every side.</div>
+    </section>
+
+    <!-- Same idea, but for margin. -->
+    <section class="lesson">
+      <h3>Add Different Margins to Each Side of an Element</h3>
+      <div class="demo-margin-sides">Different margin on every side.</div>
+    </section>
+
+    <!-- Shorthand order is always top, right, bottom, left - clockwise from 12. -->
+    <!-- This single line replaces the four padding-* lines from two examples ago. -->
+    <section class="lesson">
+      <h3>Use Clockwise Notation to Specify the Padding of an Element</h3>
+      <div class="demo-padding-clockwise">
+        Same padding as before, one line.
+      </div>
+    </section>
+
+    <!-- Same clockwise shorthand, applied to margin instead. -->
+    <section class="lesson">
+      <h3>Use Clockwise Notation to Specify the Margin of an Element</h3>
+      <div class="demo-margin-clockwise">Same margin as before, one line.</div>
+    </section>
+
+    <!-- Attribute selectors, like [type="radio"], target elements by an HTML -->
+    <!-- attribute instead of a class or id. -->
+    <section class="lesson">
+      <h3>Use Attribute Selectors to Style Elements</h3>
+      <form class="demo-attr-selector">
+        <label><input type="radio" name="demo-radio" /> Option A</label>
+        <label><input type="radio" name="demo-radio" /> Option B</label>
+      </form>
+    </section>
+
+    <!-- px is an absolute/fixed size. em is relative to the parent's font-size, -->
+    <!-- so 2em here means "2x the size of its own base font-size". -->
+    <section class="lesson">
+      <h3>Understand Absolute versus Relative Units</h3>
+      <p class="demo-units">This text is 16px (absolute).</p>
+      <p class="demo-units demo-units-em">
+        This text is 2em, i.e. 2x bigger (relative).
+      </p>
+    </section>
+
+    <!-- Styles set on <body> act as a default for the whole document - see the -->
+    <!-- body { font-family: sans-serif; ... } rule at the top of this stylesheet, -->
+    <!-- which is why every example on this page uses that font. -->
+    <section class="lesson">
+      <h3>Style the HTML Body Element</h3>
+      <p>
+        This whole page's font and background color come from a single rule on
+        &lt;body&gt;.
+      </p>
+    </section>
+
+    <!-- Elements automatically inherit certain styles (like font-family and color) -->
+    <!-- from their parents, unless a more specific rule overrides them. -->
+    <section class="lesson">
+      <h3>Inherit Styles from the Body Element</h3>
+      <p>
+        This paragraph has no class at all, yet it still uses the body's
+        font-family - it inherited it.
+      </p>
+    </section>
+
+    <!-- When two rules share the same specificity, the one declared LAST in the -->
+    <!-- stylesheet wins, no matter which class appears "first" visually here. -->
+    <section class="lesson">
+      <h3>Prioritize One Style Over Another</h3>
+      <p class="demo-priority-order">
+        This text is blue - the second, later rule won.
+      </p>
+    </section>
+
+    <!-- Same idea, but across two different classes on the same element: the -->
+    <!-- class declared later in the CSS file wins, regardless of class order -->
+    <!-- in the HTML's class="" attribute. -->
+    <section class="lesson">
+      <h3>Override Styles in Subsequent CSS</h3>
+      <p class="demo-override-a demo-override-b">
+        This text is green - demo-override-b was declared later.
+      </p>
+    </section>
+
+    <!-- An id selector is more specific than a class selector and wins over it, -->
+    <!-- regardless of source order. -->
+    <section class="lesson">
+      <h3>Override Class Declarations by Styling ID Attributes</h3>
+      <p id="demo-id-wins" class="demo-id-vs-class">
+        This text is blue - the id selector beat the class.
+      </p>
+    </section>
+
+    <!-- Inline styles (written directly in style="") beat both id and class -->
+    <!-- selectors from the stylesheet. -->
+    <section class="lesson">
+      <h3>Override Class Declarations with Inline Styles</h3>
+      <p class="demo-id-vs-class" style="color: purple">
+        This text is purple - the inline style wins over everything in the
+        stylesheet.
+      </p>
+    </section>
+
+    <!-- !important overrides EVERYTHING else, even inline styles. Use it -->
+    <!-- sparingly - it's hard to override again afterwards. -->
+    <section class="lesson">
+      <h3>Override All Other Styles by using Important</h3>
+      <p class="demo-important" style="color: blue">
+        This text is still red, thanks to !important.
+      </p>
+    </section>
+
+    <!-- A 6-digit hex code: two digits each for red, green and blue. -->
+    <section class="lesson">
+      <h3>Use Hex Code for Specific Colors</h3>
+      <div class="demo-div-bg demo-hex">#0000FF</div>
+    </section>
+
+    <!-- Tweaking the digits blends the channels into a new color. -->
+    <section class="lesson">
+      <h3>Use Hex Code to Mix Colors</h3>
+      <div class="demo-div-bg demo-hex-mix">#C89F5C</div>
+    </section>
+
+    <!-- A 3-digit shorthand where each digit is doubled: #F00 = #FF0000. -->
+    <section class="lesson">
+      <h3>Use Abbreviated Hex Code</h3>
+      <div class="demo-div-bg demo-hex-short">#F00</div>
+    </section>
+
+    <!-- Same colors as hex, expressed as three numbers from 0-255. -->
+    <section class="lesson">
+      <h3>Use RGB values to Color Elements</h3>
+      <div class="demo-div-bg demo-rgb">rgb(0, 0, 255)</div>
+    </section>
+
+    <!-- Mixing RGB channels works just like mixing hex digits. -->
+    <section class="lesson">
+      <h3>Use RGB to Mix Colors</h3>
+      <div class="demo-div-bg demo-rgb-mix">rgb(200, 100, 30)</div>
+    </section>
+
+    <!-- Both elements below read from the same --demo-shared variable, so -->
+    <!-- changing that one value in :root updates every element using it at once. -->
+    <section class="lesson">
+      <h3>Use CSS Variables to change several elements at once</h3>
+      <p class="demo-shared-a">Element A, using --demo-shared.</p>
+      <p class="demo-shared-b">Element B, using --demo-shared too.</p>
+    </section>
+
+    <!-- A variable can be declared on any selector, not just :root - its scope -->
+    <!-- is limited to that selector and its children. -->
+    <section class="lesson">
+      <h3>Create a custom CSS Variable</h3>
+      <p class="demo-var-scope">
+        --local-color was created and used right here.
+      </p>
+    </section>
+
+    <!-- var(--name) reads back a variable that was declared elsewhere (:root). -->
+    <section class="lesson">
+      <h3>Use a custom CSS Variable</h3>
+      <p class="demo-var-use">Reusing --demo-shared from :root with var().</p>
+    </section>
+
+    <!-- var(--name, fallback) falls back to a default value if the variable was -->
+    <!-- never defined - here --undefined-var doesn't exist, so it uses crimson. -->
+    <section class="lesson">
+      <h3>Attach a Fallback value to a CSS Variable</h3>
+      <p class="demo-var-fallback">
+        This uses a fallback color, since --undefined-var isn't set anywhere.
+      </p>
+    </section>
+
+    <!-- Declaring the plain property first means old browsers that don't -->
+    <!-- understand var() at all still get a usable color; the var() line then -->
+    <!-- overrides it for modern browsers. -->
+    <section class="lesson">
+      <h3>Improve Compatibility with Browser Fallbacks</h3>
+      <div class="demo-browser-fallback">
+        Pink for old browsers, purple (--demo-shared) for modern ones.
+      </div>
+    </section>
+
+    <!-- Variables cascade down the DOM tree like normal properties: the <p> -->
+    <!-- inherits --inherited-color from its parent without redeclaring it. -->
+    <section class="lesson">
+      <h3>Inherit CSS Variables</h3>
+      <div class="demo-var-inherit-parent">
+        <p>I inherit --inherited-color from my parent div.</p>
+      </div>
+    </section>
+
+    <!-- Redeclaring --demo-shared inside this wrapper only changes it for -->
+    <!-- elements inside the wrapper, without touching the global value. -->
+    <section class="lesson">
+      <h3>Change a variable for a specific area</h3>
+      <div class="demo-var-local-scope">
+        <p class="demo-shared-a">
+          This reuses .demo-shared-a, but --demo-shared is hotpink in this area
+          only.
+        </p>
+      </div>
+    </section>
+
+    <!-- A media query can redefine a variable based on screen size. Resize the -->
+    <!-- window below 350px wide and the penguin shrinks, since every part of it -->
+    <!-- reads its size from the same --penguin-size variable. -->
+    <section class="lesson">
+      <h3>Use a media query to change a variable</h3>
+      <div class="penguin-box">
+        <div class="penguin">
+          <div class="penguin-bottom">
+            <div class="right-hand"></div>
+            <div class="left-hand"></div>
+            <div class="right-feet"></div>
+            <div class="left-feet"></div>
+          </div>
+          <div class="penguin-top">
+            <div class="right-cheek"></div>
+            <div class="left-cheek"></div>
+            <div class="belly"></div>
+            <div class="right-eye">
+              <div class="sparkle"></div>
+            </div>
+            <div class="left-eye">
+              <div class="sparkle"></div>
+            </div>
+            <div class="blush-right"></div>
+            <div class="blush-left"></div>
+            <div class="beak-top"></div>
+            <div class="beak-bottom"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
