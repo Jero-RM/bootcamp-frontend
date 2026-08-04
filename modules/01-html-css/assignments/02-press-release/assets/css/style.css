@@ -1,0 +1,180 @@
+body {
+  margin: 0 auto;
+  padding: 60px 20px 100px;
+  max-width: 653px;
+  color: #1d1d1f;
+  background-color: #ffffff;
+  font-family: "Helvetica", "Arial", sans-serif;
+  font-size: 19px;
+  line-height: 1.5;
+}
+
+/* Header */
+
+.category {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #06c;
+  text-transform: uppercase;
+}
+
+.date {
+  display: block;
+  margin-top: 4px;
+  font-size: 14px;
+  color: #6e6e73;
+}
+
+h1 {
+  font-size: 48px;
+  font-weight: 700;
+  letter-spacing: -0.003em;
+  line-height: 1.1;
+  margin: 20px 0 16px;
+}
+
+h2,
+h3 {
+  font-size: 24px;
+  font-weight: 500;
+}
+
+h4 {
+  font-size: 19px;
+  font-weight: 500;
+}
+
+.subhead {
+  font-size: 24px;
+  font-weight: 500;
+  margin: 0 0 16px;
+}
+
+.lead {
+  font-size: 19px;
+  font-weight: 600;
+  color: #6e6e73;
+  margin: 0 0 24px;
+}
+
+/* Share icons */
+
+.share-row {
+  display: flex;
+  gap: 16px;
+  margin: 24px 0;
+}
+
+.share-row a {
+  color: #1d1d1f;
+  display: inline-flex;
+}
+
+.share-heading {
+  margin-top: 40px;
+  margin-bottom: 0;
+}
+
+/* Hero image */
+
+.hero {
+  margin: 0 0 40px;
+}
+
+.hero img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  display: block;
+}
+
+figcaption {
+  width: 100%;
+  color: #6e6e73;
+  font-size: 12px;
+  margin: 10px auto 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+figcaption a {
+  color: #6e6e73;
+  flex-shrink: 0;
+  margin-left: 10px;
+}
+
+/* Body copy */
+
+.body-copy p {
+  margin: 0 0 22px;
+}
+
+blockquote {
+  margin: 0 0 22px;
+  padding: 4px 0 4px 20px;
+  border-left: 3px solid #d2d2d7;
+  font-style: italic;
+}
+
+blockquote p {
+  margin: 0;
+}
+
+a {
+  color: #06c;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Award lists */
+
+.award-group h4 {
+  margin: 24px 0 8px;
+}
+
+.award-group ul {
+  margin: 0 0 8px;
+  padding-left: 20px;
+}
+
+.award-group li {
+  margin-bottom: 6px;
+}
+
+/* Show info + About sections */
+
+.show-info h3,
+.about h3 {
+  margin-top: 40px;
+  margin-bottom: 12px;
+}
+
+/* Press contacts */
+
+.press-contacts {
+  margin-top: 40px;
+}
+
+.press-contacts h3 {
+  margin-top: 40px;
+  margin-bottom: 12px;
+}
+
+.press-contacts .contact {
+  margin-bottom: 20px;
+}
+
+.contact-name {
+  margin: 0 0 2px;
+  font-weight: 600;
+}
+
+.press-contacts .contact p {
+  margin: 0 0 4px;
+  font-size: 15px;
+}
