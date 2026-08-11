@@ -1,0 +1,210 @@
+/* IMPORTANT: this whole file only uses type selectors, the universal selector, */
+/* combinators (descendant, >, +, ~), attribute selectors and pseudo-classes/ */
+/* pseudo-elements - no . classes and no # ids anywhere, per the assignment. */
+
+* {
+  box-sizing: border-box;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+body {
+  margin: 0;
+  padding: 3rem 1.5rem 5rem;
+  color: #2e2e38;
+  line-height: 1.6;
+}
+
+main {
+  max-width: 50rem;
+  margin: 0 auto;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0 0 1.5rem;
+}
+
+/* The type selector alone can't tell the lead paragraph-style h2 apart from */
+/* the section h2s further down, so > picks only the h2 that's a direct child */
+/* of <main> right after <h1> (the article's lead/summary line). */
+main > h1 + h2 {
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: #45454f;
+  margin: 0 0 1.5rem;
+}
+
+/* Every other h2 (the section headings) gets the bolder, section-heading look. */
+h1 + h2 ~ h2 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-top: 3rem;
+}
+
+h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #5e6c84;
+  margin: 0 0 1rem;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #ddd;
+  margin: 2.5rem 0;
+}
+
+p {
+  margin: 0 0 1.25rem;
+  font-size: 1.05rem;
+}
+
+/* main > p:first-of-type targets the very first <p> that's a direct child of */
+/* <main> (the opening paragraph), so the drop cap below only applies once. */
+main > p:first-of-type {
+  font-size: 1.15rem;
+}
+
+/* ::first-letter is a pseudo-element: it lets us style just the first */
+/* character of that paragraph as a classic newspaper-style drop cap, without */
+/* wrapping it in an extra <span>. */
+main > p:first-of-type::first-letter {
+  font-size: 4rem;
+  font-weight: 700;
+  float: left;
+  line-height: 1;
+  padding-right: 0.4rem;
+}
+
+ul {
+  padding-left: 1.4rem;
+  margin: 0 0 1.5rem;
+}
+
+li {
+  margin-bottom: 0.6rem;
+}
+
+/* ::marker is a pseudo-element for the bullet/number itself - the real EY */
+/* page uses plain black bullets, so this just makes them a bit bigger. */
+li::marker {
+  color: #000;
+  font-size: 1.3em;
+}
+
+/* :not() excludes the last item so every bullet except the last one gets a */
+/* thin divider underneath it. */
+li:not(:last-child) {
+  border-bottom: 1px solid #f0f0f0;
+  padding-bottom: 0.4rem;
+}
+
+strong {
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: 300;
+}
+
+/* A <section> that directly wraps a single <p> is one of the big standalone */
+/* stat call-outs (e.g. "El 85% usa bolsas reutilizables..."). The real page */
+/* doesn't put a card or colored border around these - just bigger type for */
+/* the number, so that's all this does. */
+section > p {
+  margin: 0 0 2rem;
+  font-size: 1.2rem;
+}
+
+section > p strong {
+  font-size: 3rem;
+  display: block;
+  color: #2e2e38;
+}
+
+/* :has() is a relatively new pseudo-class: it lets a <section> style itself */
+/* based on what's INSIDE it, so a <section> that wraps two <article> stat */
+/* cards becomes a two-column flex row automatically, no class needed. */
+section:has(> article) {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+section > article {
+  flex: 1 1 12rem;
+}
+
+section > article p {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+section > article strong {
+  font-size: 3rem;
+  display: block;
+  color: #2e2e38;
+}
+
+/* The last <section> on the page is the "related articles" grid, which needs */
+/* three columns instead of the stat cards' auto-wrapping two. :last-of-type */
+/* picks it out without any class or id. */
+section:last-of-type {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+section:last-of-type > article {
+  flex: 1 1 calc(33.333% - 2rem);
+  background: none;
+  border-left: none;
+  padding: 0;
+}
+
+section:last-of-type > article > a:first-child {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #2e2e38;
+  text-decoration: none;
+  margin-bottom: 0.5rem;
+}
+
+/* The thumbnail is the first element inside the title link - sized to fill */
+/* the card and separated from the headline text below it. */
+section:last-of-type img {
+  display: block;
+  width: 100%;
+  height: 10rem;
+  object-fit: cover;
+  margin-bottom: 0.75rem;
+}
+
+section:last-of-type > article p {
+  font-size: 0.95rem;
+  color: #45454f;
+}
+
+/* Attribute selector: any link whose href contains "/people/" is an author */
+/* credit, so it gets its own subtle styling regardless of where it appears. */
+a[href*="/people/"] {
+  color: #45454f;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+a {
+  color: #005ba1;
+}
+
+/* :hover only changes text-decoration, no transition/animation involved, */
+/* per the "no animations" guideline. */
+a:hover {
+  text-decoration: underline;
+}
+
+h2 + p {
+  margin-top: 0;
+}
