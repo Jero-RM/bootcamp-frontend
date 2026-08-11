@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Newsletter Subscription</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <main>
+    <h1>Subscribe to our newsletter</h1>
+
+    <form class="newsletter-form" action="#" method="post">
+
+      <div class="field">
+        <input type="text" name="name" placeholder="Full name" required minlength="2" autocomplete="name">
+        <span class="error-msg">Please enter your name (at least 2 characters).</span>
+      </div>
+
+      <div class="field">
+        <input type="email" name="email" placeholder="Email address" required autocomplete="email">
+        <span class="error-msg">Please enter a valid email address.</span>
+      </div>
+
+      <div class="field">
+        <input type="tel" name="phone" placeholder="Phone number (optional)" pattern="[0-9+\-\s()]{7,15}" autocomplete="tel">
+        <span class="error-msg">Please enter a valid phone number.</span>
+      </div>
+
+      <!-- IMPORTANT: the href is a same-page hash (#terms-and-conditions), not a separate .html file - that's what lets #terms-and-conditions:target work in the CSS below. A link to another page would never match :target here. -->
+      <div class="field checkbox-field">
+        <label class="checkbox-label">
+          <input type="checkbox" name="terms" required>
+          <span>I accept the <a href="#terms-and-conditions" class="terms-link">Terms and Conditions</a></span>
+        </label>
+        <span class="error-msg">You must accept the Terms and Conditions to subscribe.</span>
+      </div>
+
+      <button type="submit">Subscribe</button>
+    </form>
+
+    <section id="terms-and-conditions">
+      <h2>Terms and Conditions</h2>
+
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. By subscribing to this newsletter you agree to the following dummy terms, provided here for practice purposes only.</p>
+
+      <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+      <!-- IMPORTANT: li:nth-child(odd) counts from 1, so it targets the 1st, 3rd, 5th... items, not index 0 like in JavaScript arrays. -->
+      <ul>
+        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+        <li>Duis aute irure dolor in reprehenderit in voluptate velit esse.</li>
+        <li>Excepteur sint occaecat cupidatat non proident, sunt in culpa.</li>
+        <li>Curabitur pretium tincidunt lacus, sit amet eleifend turpis.</li>
+        <li>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices.</li>
+        <li>Nullam quis risus eget urna mollis ornare vel eu leo.</li>
+        <li>Donec ullamcorper nulla non metus auctor fringilla.</li>
+        <li>Maecenas sed diam eget risus varius blandit sit amet non magna.</li>
+        <li>Cras mattis consectetur purus sit amet fermentum.</li>
+        <li>Aenean lacinia bibendum nulla sed consectetur.</li>
+      </ul>
+    </section>
+  </main>
+
+</body>
+</html>

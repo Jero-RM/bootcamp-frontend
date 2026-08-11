@@ -1,0 +1,183 @@
+html {
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+  padding: 2rem 1rem 4rem;
+  font-family: system-ui, "Segoe UI", Arial, sans-serif;
+  color: #1d1d1f;
+}
+
+main {
+  max-width: 30rem;
+  margin: 0 auto;
+}
+
+h1 {
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+/* ===== Form layout ===== */
+
+.newsletter-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Requirement 2: all form text sizes are in rem, not px. */
+.newsletter-form input {
+  font-size: 1rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+  font-family: inherit;
+}
+
+/* ===== Real-time validation feedback (color + text) ===== */
+/* :placeholder-shown is true while the field is empty, so pairing it with */
+/* :not() means we only judge a field once the user has actually typed */
+/* something in it - the page doesn't scream "invalid" before they interact. */
+
+.error-msg {
+  display: none;
+  font-size: 0.85rem;
+  color: #c0392b;
+  margin-top: 0.25rem;
+}
+
+.newsletter-form input:not([type="checkbox"]):not(:placeholder-shown):invalid {
+  border-color: #c0392b;
+  background-color: #fdecea;
+}
+
+/* IMPORTANT: the ~ (general sibling) combinator only works forward and only */
+/* between siblings - .error-msg must come right after the input in the HTML, */
+/* never wrapped inside it, or this selector won't match at all. */
+.newsletter-form input:not([type="checkbox"]):not(:placeholder-shown):invalid ~ .error-msg {
+  display: block;
+}
+
+.newsletter-form input:not([type="checkbox"]):not(:placeholder-shown):valid {
+  border-color: #2e7d32;
+  background-color: #eaf6ec;
+}
+
+/* Checkbox is required, so it's :invalid until it's checked. */
+.newsletter-form input[type="checkbox"]:invalid ~ .error-msg {
+  display: block;
+}
+
+.checkbox-field {
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.checkbox-label {
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.checkbox-label input[type="checkbox"] {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+button[type="submit"] {
+  font-size: 1rem;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 0.25rem;
+  background-color: #0066cc;
+  color: #fff;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #004999;
+}
+
+button[type="submit"]:active {
+  background-color: #003a75;
+}
+
+/* ===== Terms and Conditions link states (requirement 10) ===== */
+/* IMPORTANT: the order below (link, visited, hover, active - "LVHA") is not */
+/* arbitrary. If :hover or :active were written before :link/:visited, the */
+/* browser would apply whichever rule comes LAST among ties, and hover/active */
+/* would silently stop working because :link/:visited would override them. */
+
+.terms-link:link {
+  color: #0066cc;
+  text-decoration: underline;
+}
+
+.terms-link:visited {
+  color: #6b3fa0;
+}
+
+.terms-link:hover {
+  color: #004999;
+  text-decoration: none;
+}
+
+.terms-link:active {
+  color: #c0392b;
+}
+
+/* ===== Terms and Conditions section (requirement 9) ===== */
+
+#terms-and-conditions {
+  max-width: 120ch;
+  margin: 3rem auto 0;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+/* IMPORTANT: this background must live INSIDE the :target rule, not as a */
+/* permanent style on #terms-and-conditions - a common mistake is to make */
+/* the section always blue, which defeats the point of :target entirely. */
+#terms-and-conditions:target {
+  background-color: #DEEBFF;
+}
+
+/* :first-of-type looks at position among siblings of the SAME tag, so this */
+/* still finds the first <p> here even though an <h2> comes right before it. */
+#terms-and-conditions p:first-of-type {
+  color: #0747A6;
+  font-weight: 600;
+}
+
+#terms-and-conditions ul {
+  list-style: none;
+  padding: 0;
+  margin: 1rem auto 0;
+  max-width: 40rem;
+}
+
+#terms-and-conditions li {
+  margin-bottom: 0.5rem;
+}
+
+/* Bullets are replaced with a custom icon via ::before instead of the */
+/* default list-style disc. */
+#terms-and-conditions li::before {
+  content: "\25B8";
+  margin-right: 0.5rem;
+  color: #0747A6;
+}
+
+/* Every odd list item gets a gray icon instead. */
+#terms-and-conditions li:nth-child(odd)::before {
+  color: #5E6C84;
+}
