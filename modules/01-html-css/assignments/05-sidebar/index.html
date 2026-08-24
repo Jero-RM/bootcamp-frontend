@@ -1,0 +1,417 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Sidebar</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <nav class="sidebar">
+      <!-- Flyout is a child of .logo-item, not a sibling in its own wrapper - -->
+      <!-- a hovered descendant still counts as its ancestor being hovered, -->
+      <!-- even once position: absolute moves it out of the small icon box. -->
+      <div class="sidebar-item logo-item">
+        <span class="logo-mark">w<span class="logo-dot"></span></span>
+        <div class="flyout brand-switcher" role="menu">
+          <div class="brand-item" role="menuitem">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-logs-icon lucide-logs"
+            >
+              <path d="M3 5h1" />
+              <path d="M3 12h1" />
+              <path d="M3 19h1" />
+              <path d="M8 5h1" />
+              <path d="M8 12h1" />
+              <path d="M8 19h1" />
+              <path d="M13 5h8" />
+              <path d="M13 12h8" />
+              <path d="M13 19h8" />
+            </svg>
+            <span class="brand-logo" style="background: #1a1a2e; color: #fff"
+              >M</span
+            >
+            <span class="brand-details">
+              <span class="brand-name">Mercedes</span>
+              <span class="brand-plan">Team Plan · 4.5k members</span>
+            </span>
+          </div>
+          <div class="brand-item" role="menuitem">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-logs-icon lucide-logs"
+            >
+              <path d="M3 5h1" />
+              <path d="M3 12h1" />
+              <path d="M3 19h1" />
+              <path d="M8 5h1" />
+              <path d="M8 12h1" />
+              <path d="M8 19h1" />
+              <path d="M13 5h8" />
+              <path d="M13 12h8" />
+              <path d="M13 19h8" />
+            </svg>
+            <span class="brand-logo" style="background: #fde2e4; color: #9d174d"
+              >S</span
+            >
+            <span class="brand-details">
+              <span class="brand-name">Sandra</span>
+              <span class="brand-plan">Personal Plan · 1 member</span>
+            </span>
+          </div>
+          <div class="brand-item brand-item--active" role="menuitem">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-logs-icon lucide-logs"
+            >
+              <path d="M3 5h1" />
+              <path d="M3 12h1" />
+              <path d="M3 19h1" />
+              <path d="M8 5h1" />
+              <path d="M8 12h1" />
+              <path d="M8 19h1" />
+              <path d="M13 5h8" />
+              <path d="M13 12h8" />
+              <path d="M13 19h8" />
+            </svg>
+            <span class="brand-logo brand-logo--active">w</span>
+            <span class="brand-details">
+              <span class="brand-name">Widelab</span>
+              <span class="brand-plan">Team Plan · 40 members</span>
+            </span>
+            <svg class="brand-check" viewBox="0 0 24 24" width="14" height="14">
+              <path
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M4 12.5 9 18 20 6"
+              />
+            </svg>
+          </div>
+          <div class="brand-item" role="menuitem">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-logs-icon lucide-logs"
+            >
+              <path d="M3 5h1" />
+              <path d="M3 12h1" />
+              <path d="M3 19h1" />
+              <path d="M8 5h1" />
+              <path d="M8 12h1" />
+              <path d="M8 19h1" />
+              <path d="M13 5h8" />
+              <path d="M13 12h8" />
+              <path d="M13 19h8" />
+            </svg>
+            <span class="brand-logo" style="background: #f4f4f5; color: #18181b"
+              >F</span
+            >
+            <span class="brand-details">
+              <span class="brand-name">Figma</span>
+              <span class="brand-plan">Team Plan · 556 members</span>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <hr class="divider" />
+
+      <!-- Standalone: Search -->
+      <button class="sidebar-item item-btn" type="button">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-search-icon lucide-search"
+        >
+          <path d="m21 21-4.34-4.34" />
+          <circle cx="11" cy="11" r="8" />
+        </svg>
+        <span class="tooltip">Search</span>
+      </button>
+
+      <!-- Inbox / Activity / Schedule group -->
+      <button class="sidebar-item item-btn" type="button">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-inbox-icon lucide-inbox"
+        >
+          <polyline points="22 12 16 12 14 15 10 15 8 12 2 12" />
+          <path
+            d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"
+          />
+        </svg>
+        <span class="tooltip">Inbox</span>
+      </button>
+
+      <button class="sidebar-item item-btn" type="button">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-bell-dot-icon lucide-bell-dot"
+        >
+          <path d="M10.268 21a2 2 0 0 0 3.464 0" />
+          <path
+            d="M11.68 2.009A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673c-.824-.85-1.678-1.731-2.21-3.348"
+          />
+          <circle cx="18" cy="5" r="3" />
+        </svg>
+        <span class="tooltip">Activity</span>
+      </button>
+
+      <button class="sidebar-item item-btn" type="button">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-book-text-icon lucide-book-text"
+        >
+          <path
+            d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"
+          />
+          <path d="M8 11h8" />
+          <path d="M8 7h6" />
+        </svg>
+        <span class="tooltip">Schedule</span>
+      </button>
+
+      <hr class="divider" />
+
+      <!-- Shared group: Boosts, Documents, plus an "add to Shared" button -->
+      <button class="sidebar-item item-btn" type="button">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-zap-icon lucide-zap"
+        >
+          <path
+            d="M15.914 4a1.5 1.5 0 00-2.474-1.561l-9 9A1.5 1.5 0 005.5 14h4.002a.5.5 0 01.471.666L8.086 20a1.5 1.5 0 002.475 1.56l9-9A1.5 1.5 0 0018.5 10h-3.997a.5.5 0 01-.472-.667z"
+          />
+        </svg>
+        <span class="tooltip">Boosts</span>
+      </button>
+
+      <button class="sidebar-item item-btn" type="button">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-file-stack-icon lucide-file-stack"
+        >
+          <path d="M11 21a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-8a1 1 0 0 1 1-1" />
+          <path d="M16 16a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1" />
+          <path
+            d="M21 6a2 2 0 0 0-.586-1.414l-2-2A2 2 0 0 0 17 2h-3a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1z"
+          />
+        </svg>
+        <span class="tooltip">Documents</span>
+      </button>
+
+      <button class="sidebar-item item-btn" type="button">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-square-plus-icon lucide-square-plus"
+        >
+          <rect width="18" height="18" x="3" y="3" rx="2" />
+          <path d="M8 12h8" />
+          <path d="M12 8v8" />
+        </svg>
+        <span class="tooltip">Add Shared Item</span>
+      </button>
+
+      <hr class="divider" />
+
+      <!-- Projects group: Personal, Business, Travel, then add new -->
+      <button class="sidebar-item item-btn" type="button">
+        <span class="project-dot dot-personal"></span>
+        <span class="tooltip">Personal</span>
+      </button>
+
+      <button class="sidebar-item item-btn" type="button">
+        <span class="project-dot dot-business"></span>
+        <span class="tooltip">Business</span>
+      </button>
+
+      <button class="sidebar-item item-btn" type="button">
+        <span class="project-dot dot-travel"></span>
+        <span class="tooltip">Travel</span>
+      </button>
+
+      <button class="sidebar-item item-btn" type="button">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-square-plus-icon lucide-square-plus"
+        >
+          <rect width="18" height="18" x="3" y="3" rx="2" />
+          <path d="M8 12h8" />
+          <path d="M12 8v8" />
+        </svg>
+        <span class="tooltip">Add New Project</span>
+      </button>
+
+      <!-- Flexible spacer pushes Settings/Help/avatar to the bottom of the rail -->
+      <div class="sidebar-spacer"></div>
+
+      <button class="sidebar-item item-btn" type="button">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-settings-icon lucide-settings"
+        >
+          <path
+            d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915"
+          />
+          <circle cx="12" cy="12" r="3" />
+        </svg>
+        <span class="tooltip">Settings</span>
+      </button>
+
+      <button class="sidebar-item item-btn" type="button">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="18"
+          height="18"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-life-buoy-icon lucide-life-buoy"
+        >
+          <circle cx="12" cy="12" r="10" />
+          <path d="m4.93 4.93 4.24 4.24" />
+          <path d="m14.83 9.17 4.24-4.24" />
+          <path d="m14.83 14.83 4.24 4.24" />
+          <path d="m9.17 14.83-4.24 4.24" />
+          <circle cx="12" cy="12" r="4" />
+        </svg>
+        <span class="tooltip">Help</span>
+      </button>
+
+      <hr class="divider" />
+
+      <!-- Same nested-flyout trick as the logo, anchored to the bottom. -->
+      <div class="sidebar-item avatar-item">
+        <span class="avatar-circle">SM</span>
+
+        <div class="flyout profile-menu" role="menu">
+          <div class="profile-header-card">
+            <span class="profile-avatar-small">SM</span>
+            <span class="profile-info">
+              <span class="profile-user-name">Sandra Marx</span>
+              <span class="profile-user-email">sandra@gmail.com</span>
+            </span>
+          </div>
+
+          <div class="profile-menu-item" role="menuitem">Integrations</div>
+          <div class="profile-menu-item" role="menuitem">History</div>
+          <div class="profile-menu-item" role="menuitem">Upgrade to Pro</div>
+          <div class="profile-menu-item" role="menuitem">Logout</div>
+        </div>
+      </div>
+    </nav>
+
+    <main class="page-content">
+      <h1>Sidebar</h1>
+      <p>By: Jero Rm</p>
+    </main>
+  </body>
+</html>
