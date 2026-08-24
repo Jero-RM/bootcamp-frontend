@@ -6,14 +6,16 @@
   --text-gray: #71717a;
   --text-light: #a1a1aa;
   --hover-bg: #f4f4f5;
-  --shadow-menu: 0 10px 30px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.03);
+  --shadow-menu:
+    0 10px 30px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.03);
 }
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
 body {
@@ -50,7 +52,7 @@ body {
   border: none;
   background: none;
   border-radius: 0.5rem;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.15rem;
   color: var(--text-gray);
 }
 
@@ -63,10 +65,22 @@ body {
 }
 
 .divider {
-  width: 1.75rem;
+  width: 4rem;
   border: none;
   border-top: 1px solid var(--border-color);
   margin: 0.6rem 0;
+}
+
+.icon-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.icon-group .sidebar-item:last-child {
+  margin-bottom: 0;
 }
 
 /* Takes up all the remaining height, so Settings/Help/avatar get pushed to */
@@ -91,7 +105,9 @@ body {
   white-space: nowrap;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.15s ease, left 0.15s ease;
+  transition:
+    opacity 0.15s ease,
+    left 0.15s ease;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
@@ -104,6 +120,7 @@ body {
 .logo-item {
   background-color: var(--accent-blue);
   cursor: pointer;
+  margin-bottom: 0.75rem;
 }
 
 .logo-item:hover {
@@ -128,7 +145,7 @@ body {
   font-size: 1.25rem;
   font-weight: 700;
   color: #ffffff;
-  line-height: 1;
+  line-height: 0.5;
 }
 
 .logo-dot {
@@ -146,9 +163,15 @@ body {
   border-radius: 0.25rem;
 }
 
-.dot-personal { background-color: #a7f3d0; }
-.dot-business { background-color: #bfdbfe; }
-.dot-travel { background-color: #fbcfe8; }
+.dot-personal {
+  background-color: #a7f3d0;
+}
+.dot-business {
+  background-color: #bfdbfe;
+}
+.dot-travel {
+  background-color: #fbcfe8;
+}
 
 .dot-add {
   border: 1px dashed var(--text-light);
@@ -201,7 +224,9 @@ body {
   opacity: 0;
   pointer-events: none;
   transform: translateX(10px);
-  transition: opacity 0.2s ease, transform 0.2s ease;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
   z-index: 1001;
   cursor: default;
   display: flex;
@@ -326,6 +351,9 @@ body {
 }
 
 .profile-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   padding: 0.5rem 0.6rem;
   border-radius: 0.4rem;
   font-size: 0.85rem;
@@ -334,6 +362,38 @@ body {
 
 .profile-menu-item:hover {
   background-color: var(--hover-bg);
+}
+
+.profile-menu-item.update-btn {
+  background-color: #f0fdf4;
+  color: #15803d;
+  font-weight: 500;
+  margin-top: 0.25rem;
+}
+
+.profile-menu-item.update-btn:hover {
+  background-color: #dcfce7;
+}
+
+.green-dot-active {
+  width: 0.4rem;
+  height: 0.4rem;
+  background-color: #16a34a;
+  border-radius: 50%;
+}
+
+.profile-logout-row {
+  margin-top: 0.25rem;
+  border-top: 1px solid var(--border-color);
+  padding-top: 0.5rem;
+}
+
+.profile-version {
+  margin-top: 0.5rem;
+  padding: 0.5rem 0.6rem 0;
+  font-size: 0.68rem;
+  color: var(--text-light);
+  text-align: left;
 }
 
 /* Page content, just enough to demonstrate the scroll/fixed behavior. */
