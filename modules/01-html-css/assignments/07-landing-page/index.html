@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fore - Landing Page</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <!-- Header + hero share the same solid black background. -->
+    <div class="dark-section">
+      <header class="site-header">
+        <div class="header-inner">
+          <!-- Six rotated ellipses around a shared center make the pinwheel mark. -->
+          <a class="logo" href="#" aria-label="Fore home">
+            <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+              <g fill="#3b5bfd">
+                <ellipse
+                  cx="12"
+                  cy="6"
+                  rx="2.1"
+                  ry="4"
+                  transform="rotate(0 12 12)"
+                />
+                <ellipse
+                  cx="12"
+                  cy="6"
+                  rx="2.1"
+                  ry="4"
+                  transform="rotate(60 12 12)"
+                />
+                <ellipse
+                  cx="12"
+                  cy="6"
+                  rx="2.1"
+                  ry="4"
+                  transform="rotate(120 12 12)"
+                />
+                <ellipse
+                  cx="12"
+                  cy="6"
+                  rx="2.1"
+                  ry="4"
+                  transform="rotate(180 12 12)"
+                />
+                <ellipse
+                  cx="12"
+                  cy="6"
+                  rx="2.1"
+                  ry="4"
+                  transform="rotate(240 12 12)"
+                />
+                <ellipse
+                  cx="12"
+                  cy="6"
+                  rx="2.1"
+                  ry="4"
+                  transform="rotate(300 12 12)"
+                />
+              </g>
+            </svg>
+          </a>
+
+          <!-- Hidden on mobile in favor of the hamburger button below. -->
+          <nav class="main-nav" aria-label="Primary">
+            <a class="nav-link nav-link--active" href="#">Home</a>
+            <a class="nav-link" href="#">Products</a>
+            <a class="nav-link" href="#">Showcase</a>
+            <a class="nav-link" href="#"
+              >Discover<span class="badge-new">NEW</span></a
+            >
+          </nav>
+
+          <a class="btn btn-primary btn-small header-cta" href="#">Sign Up</a>
+
+          <!-- Decorative only, no menu logic wired up for this exercise. -->
+          <button class="hamburger-btn" type="button" aria-label="Open menu">
+            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+              <path
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+          </button>
+        </div>
+      </header>
+
+      <section class="hero">
+        <div class="hero-top">
+          <div class="hero-heading">
+            <p class="eyebrow">Introducing the latest innovation</p>
+            <h1>
+              Create all your product mockups <em>easily</em>
+              <span class="plus-badge" aria-hidden="true">+</span>
+            </h1>
+          </div>
+
+          <div class="hero-details">
+            <p class="hero-copy">
+              Fore is a service for creating all your mockup needs. You just
+              drag and drop and the mockup is immediately ready to use.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#"
+                >Try for free <span aria-hidden="true">&#8599;</span></a
+              >
+              <a class="btn btn-secondary" href="#">Get app</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Assignment scope stops here - the "Easy to use app" card is not built. -->
+    <section class="brands">
+      <!-- The two source URLs stand in for the two real photos provided in the assignment repo. -->
+      <picture class="hero-shot">
+        <source
+          media="(max-width: 640px)"
+          srcset="./assets/img/photopage.png"
+        />
+        <img
+          class="hero-shot-img"
+          src="./assets/img/photopage.png"
+          width="1200"
+          height="750"
+          alt="Photo of a finished product mockup, standing in for the app screenshot in this exercise"
+        />
+      </picture>
+
+      <p class="brands-label">Other brands have trusted our service</p>
+
+      <div class="brands-logos">
+        <div class="brand-logo">
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+            <path fill="currentColor" d="M13 2 3 14h7l-1 8 11-14h-8l1-6Z" />
+          </svg>
+          <span>Bolt</span>
+        </div>
+
+        <div class="brand-logo">
+          <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+            <rect x="2" y="2" width="9" height="9" fill="currentColor" />
+            <rect x="13" y="2" width="9" height="9" fill="currentColor" />
+            <rect x="2" y="13" width="9" height="9" fill="currentColor" />
+            <rect x="13" y="13" width="9" height="9" fill="currentColor" />
+          </svg>
+          <span>Microsoft</span>
+        </div>
+
+        <div class="brand-logo">
+          <!-- Simplified two-diamond approximation of the Dropbox mark, not the real brand asset. -->
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+            <path
+              fill="currentColor"
+              d="m6 3 6 4-6 4-6-4Z"
+              transform="translate(6 0)"
+            />
+            <path
+              fill="currentColor"
+              d="m18 3 6 4-6 4-6-4Z"
+              transform="translate(-6 0)"
+            />
+            <path fill="currentColor" d="m12 12 6 4-6 4-6-4Z" />
+          </svg>
+          <span>Dropbox</span>
+        </div>
+
+        <div class="brand-logo brand-logo--wordmark">
+          fiverr<span class="brand-dot">.</span>
+        </div>
+
+        <div class="brand-logo">
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+            <circle
+              cx="12"
+              cy="12"
+              r="9"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            />
+          </svg>
+          <span>SQUARESPACE</span>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
