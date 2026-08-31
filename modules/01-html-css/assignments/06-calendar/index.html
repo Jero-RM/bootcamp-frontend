@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calendar</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <div class="calendar-card">
+      <!-- Header: title, filter dropdown and a decorative CTA button (no create-meeting logic wired up). -->
+      <header class="calendar-header">
+        <h1 class="calendar-title">Calendar</h1>
+
+        <select class="meeting-filter">
+          <option>All Meeting</option>
+        </select>
+
+        <button class="create-btn" type="button">Create a Meeting</button>
+      </header>
+
+      <!-- Date strip: the arrow buttons are decorative only, they don't page through real weeks. -->
+      <nav class="date-nav" aria-label="Week navigation (static)">
+        <span class="nav-arrow" aria-hidden="true">&lsaquo;</span>
+
+        <div class="date-list">
+          <div class="date-cell">
+            <span class="date-month">Sep</span><span class="date-day">19</span
+            ><span class="date-weekday">Mon</span>
+          </div>
+          <div class="date-cell">
+            <span class="date-month">Sep</span><span class="date-day">20</span
+            ><span class="date-weekday">Tue</span>
+          </div>
+          <div class="date-cell">
+            <span class="date-month">Sep</span><span class="date-day">21</span
+            ><span class="date-weekday">Web</span>
+          </div>
+          <div class="date-cell">
+            <span class="date-month">Sep</span><span class="date-day">22</span
+            ><span class="date-weekday">Thu</span>
+          </div>
+          <div class="date-cell">
+            <span class="date-month">Sep</span><span class="date-day">23</span
+            ><span class="date-weekday">Fri</span>
+          </div>
+          <div class="date-cell">
+            <span class="date-month">Sep</span><span class="date-day">24</span
+            ><span class="date-weekday">Sat</span>
+          </div>
+          <div class="date-cell">
+            <span class="date-month">Sep</span><span class="date-day">25</span
+            ><span class="date-weekday">Sun</span>
+          </div>
+        </div>
+
+        <span class="nav-arrow" aria-hidden="true">&rsaquo;</span>
+      </nav>
+
+      <!-- Scheduler: fixed hour column + a 7-day grid, each row a true 1-hour slot (7 AM to 4 PM). -->
+      <div class="scheduler">
+        <div class="hour-column">
+          <span class="hour-label">7 AM</span>
+          <span class="hour-label">8 AM</span>
+          <span class="hour-label">9 AM</span>
+          <span class="hour-label">10 AM</span>
+          <span class="hour-label">11 AM</span>
+          <span class="hour-label">12 PM</span>
+          <span class="hour-label">1 PM</span>
+          <span class="hour-label">2 PM</span>
+          <span class="hour-label">3 PM</span>
+          <span class="hour-label">4 PM</span>
+        </div>
+
+        <!-- Cards use grid-column/grid-row placement (grid lines come from a CSS background, no empty divs); "span 2" covers a 2-hour meeting. -->
+        <div class="grid-body">
+          <article
+            class="meeting-card card-blue"
+            style="grid-column: 1; grid-row: 1 / span 2"
+          >
+            <div class="card-top">
+              <span class="avatar">S</span>
+              <svg
+                class="card-icon"
+                viewBox="0 0 24 24"
+                width="12"
+                height="12"
+                aria-hidden="true"
+              >
+                <path
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M4 12.5 9 18 20 6"
+                />
+              </svg>
+            </div>
+            <div class="card-time">7:30 AM</div>
+            <div class="card-title">Meeting with Sam</div>
+          </article>
+
+          <article
+            class="meeting-card card-blue"
+            style="grid-column: 2; grid-row: 1 / span 2"
+          >
+            <div class="card-top">
+              <span class="avatar">S</span>
+              <svg
+                class="card-icon"
+                viewBox="0 0 24 24"
+                width="12"
+                height="12"
+                aria-hidden="true"
+              >
+                <path
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M4 12.5 9 18 20 6"
+                />
+              </svg>
+            </div>
+            <div class="card-time">8:40 AM</div>
+            <div class="card-title">Meeting with Sam</div>
+          </article>
+
+          <article
+            class="meeting-card card-blue"
+            style="grid-column: 4; grid-row: 1 / span 2"
+          >
+            <div class="card-top">
+              <span class="avatar">S</span>
+              <span class="card-dots" aria-hidden="true"
+                >&bull;&bull;&bull;</span
+              >
+            </div>
+            <div class="card-time">6:30 AM</div>
+            <div class="card-title">Meeting with Sam</div>
+          </article>
+
+          <article
+            class="meeting-card card-green"
+            style="grid-column: 7; grid-row: 1 / span 2"
+          >
+            <div class="card-top">
+              <span class="avatar">S</span>
+              <span class="card-dots" aria-hidden="true"
+                >&bull;&bull;&bull;</span
+              >
+            </div>
+            <div class="card-time">6:30 AM</div>
+            <div class="card-title">Meeting with Sam</div>
+          </article>
+
+          <article
+            class="meeting-card card-orange"
+            style="grid-column: 2; grid-row: 3 / span 2"
+          >
+            <div class="card-top">
+              <span class="avatar">S</span>
+              <span class="card-dots" aria-hidden="true"
+                >&bull;&bull;&bull;</span
+              >
+            </div>
+            <div class="card-time">7:30 AM</div>
+            <div class="card-title">Meeting with Sam</div>
+          </article>
+
+          <article
+            class="meeting-card card-green"
+            style="grid-column: 5; grid-row: 6 / span 2"
+          >
+            <div class="card-top">
+              <span class="avatar">C</span>
+              <span class="card-dots" aria-hidden="true"
+                >&bull;&bull;&bull;</span
+              >
+            </div>
+            <div class="card-time">6:30 AM</div>
+            <div class="card-title">Launch with Carla</div>
+          </article>
+
+          <article
+            class="meeting-card card-pink"
+            style="grid-column: 6; grid-row: 8 / span 2"
+          >
+            <div class="card-top">
+              <span class="avatar">S</span>
+              <span class="card-dots" aria-hidden="true"
+                >&bull;&bull;&bull;</span
+              >
+            </div>
+            <div class="card-time">6:30 AM</div>
+            <div class="card-title">Meeting with Sam</div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

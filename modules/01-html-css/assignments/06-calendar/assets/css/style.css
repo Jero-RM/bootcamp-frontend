@@ -1,0 +1,261 @@
+:root {
+  --bg-page: #f4f4f5;
+  --border-color: #eeeef1;
+  --text-main: #18181b;
+  --text-gray: #71717a;
+  --text-light: #a1a1aa;
+  --accent-purple: #6d28d9;
+
+  /* One pair of variables per meeting theme, so each card's colors live in a single place. */
+  --blue-bg: #eef2ff;
+  --blue-text: #4338ca;
+  --blue-border: #c7d2fe;
+  --orange-bg: #fff7ed;
+  --orange-text: #c2410c;
+  --orange-border: #fed7aa;
+  --green-bg: #f0fdf4;
+  --green-text: #15803d;
+  --green-border: #bbf7d0;
+  --pink-bg: #fdf2f8;
+  --pink-text: #be185d;
+  --pink-border: #fbcfe8;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+  background-color: var(--bg-page);
+  color: var(--text-main);
+  padding: 2.5rem 1.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.calendar-card {
+  width: 100%;
+  max-width: 68rem;
+  background-color: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  padding: 1.5rem;
+}
+
+/* --- Header --- */
+
+.calendar-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.calendar-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.meeting-filter {
+  padding: 0.4rem 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 0.4rem;
+  font-size: 0.85rem;
+  color: var(--text-gray);
+  background-color: #ffffff;
+}
+
+/* Pushed to the far right regardless of how wide the filter is. */
+.create-btn {
+  margin-left: auto;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.6rem 1rem;
+  background-color: var(--accent-purple);
+  color: #ffffff;
+  font-size: 0.85rem;
+  font-weight: 600;
+  /* Visual only - not wired to any create-meeting logic, same as the arrows below. */
+  cursor: default;
+}
+
+/* --- Date navigation --- */
+
+.date-nav {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-bottom: 1rem;
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+/* Round buttons that look clickable but carry no click handling. */
+.nav-arrow {
+  flex-shrink: 0;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  border: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  color: var(--text-gray);
+  cursor: default;
+}
+
+.date-list {
+  flex: 1 1 auto;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.date-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+}
+
+.date-month {
+  font-size: 0.8rem;
+  color: var(--text-gray);
+}
+
+.date-day {
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+.date-weekday {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--text-gray);
+}
+
+/* --- Scheduler grid --- */
+
+.scheduler {
+  display: flex;
+}
+
+.hour-column {
+  flex-shrink: 0;
+  width: 4rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.hour-label {
+  height: 5.5rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--text-light);
+  padding-top: 0.25rem;
+}
+
+.grid-body {
+  flex: 1 1 auto;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(10, 5.5rem);
+
+  /* Two overlapping gradients draw the day/hour lines - one background instead of ~70 empty divs. */
+  background-image:
+    linear-gradient(to right, var(--border-color) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--border-color) 1px, transparent 1px);
+  background-size:
+    calc(100% / 7) 5.5rem,
+    100% 5.5rem;
+}
+
+/* --- Meeting cards --- */
+
+.meeting-card {
+  position: relative;
+  margin: 0.3rem;
+  border: 1px solid transparent;
+  border-radius: 0.6rem;
+  padding: 0.55rem 0.65rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  z-index: 1;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+/* Moves up-left and rises above every neighboring cell on hover. */
+.meeting-card:hover {
+  transform: translate(-0.3rem, -0.3rem);
+  box-shadow: 0.4rem 0.6rem 1.1rem rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+.card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.avatar {
+  width: 1.3rem;
+  height: 1.3rem;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: inherit;
+}
+
+.card-dots {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.card-time {
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.card-title {
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+/* Themes: just swap background/border/text, everything else is shared. */
+.card-blue {
+  background-color: var(--blue-bg);
+  border-color: var(--blue-border);
+  color: var(--blue-text);
+}
+.card-orange {
+  background-color: var(--orange-bg);
+  border-color: var(--orange-border);
+  color: var(--orange-text);
+}
+.card-green {
+  background-color: var(--green-bg);
+  border-color: var(--green-border);
+  color: var(--green-text);
+}
+.card-pink {
+  background-color: var(--pink-bg);
+  border-color: var(--pink-border);
+  color: var(--pink-text);
+}
