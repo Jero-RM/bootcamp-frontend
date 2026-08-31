@@ -1,0 +1,410 @@
+:root {
+  --sidebar-bg: #ffffff;
+  --border-color: #efeff1;
+  --accent-blue: #2424eb;
+  --text-main: #18181b;
+  --text-gray: #71717a;
+  --text-light: #a1a1aa;
+  --hover-bg: #f4f4f5;
+  --shadow-menu:
+    0 10px 30px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+  background-color: #f4f4f5;
+  color: var(--text-main);
+  /* Real scroll height, so the fixed sidebar can be tested by scrolling. */
+  min-height: 200vh;
+}
+
+/* Icon-only rail, pinned to the left for the whole scroll height. */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 4.5rem;
+  height: 100vh;
+  background-color: var(--sidebar-bg);
+  border-right: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 0;
+  z-index: 1000;
+}
+
+.sidebar-item {
+  position: relative;
+  width: 2.625rem;
+  height: 2.625rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: none;
+  background: none;
+  border-radius: 0.5rem;
+  margin-bottom: 0.15rem;
+  color: var(--text-gray);
+}
+
+.item-btn {
+  cursor: pointer;
+}
+
+.item-btn:hover {
+  background-color: var(--hover-bg);
+}
+
+.divider {
+  width: 4rem;
+  border: none;
+  border-top: 1px solid var(--border-color);
+  margin: 0.6rem 0;
+}
+
+.icon-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.icon-group .sidebar-item:last-child {
+  margin-bottom: 0;
+}
+
+/* Takes up all the remaining height, so Settings/Help/avatar get pushed to */
+/* the very bottom of the rail regardless of how many items are above. */
+.sidebar-spacer {
+  flex: 1 1 auto;
+}
+
+/* Tooltip lives inside the button itself, so a plain :hover on the button */
+/* is enough to reveal it - no extra wrapper needed. */
+.tooltip {
+  position: absolute;
+  left: 3.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: var(--text-main);
+  color: #ffffff;
+  padding: 0.4rem 0.65rem;
+  border-radius: 0.4rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity 0.15s ease,
+    left 0.15s ease;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-item:hover .tooltip {
+  opacity: 1;
+  left: 3.5rem;
+}
+
+/* Top logo: hovering it reveals the brand switcher. */
+.logo-item {
+  background-color: var(--accent-blue);
+  cursor: pointer;
+  margin-bottom: 0.75rem;
+}
+
+.logo-item:hover {
+  background-color: #1a1abc;
+}
+
+/* Invisible strip that extends the hoverable area toward the flyout, so a */
+/* diagonal mouse move across the small gap doesn't lose :hover mid-way. */
+.logo-item::after {
+  content: "";
+  position: absolute;
+  top: -8px;
+  right: -20px;
+  width: 20px;
+  height: calc(100% + 16px);
+}
+
+.logo-mark {
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 0.5;
+}
+
+.logo-dot {
+  width: 9px;
+  height: 9px;
+  background-color: #ffffff;
+  margin-bottom: 2px;
+  display: inline-block;
+}
+
+/* Project color dots, plain squares - no extra decoration. */
+.project-dot {
+  width: 0.85rem;
+  height: 0.85rem;
+  border-radius: 0.25rem;
+}
+
+.dot-personal {
+  background-color: #a7f3d0;
+}
+.dot-business {
+  background-color: #bfdbfe;
+}
+.dot-travel {
+  background-color: #fbcfe8;
+}
+
+.dot-add {
+  border: 1px dashed var(--text-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-light);
+}
+
+/* Bottom avatar: hovering it reveals the profile menu. Same gap-bridging */
+/* trick as the logo, just anchored to the bottom instead of the top. */
+.avatar-item {
+  cursor: pointer;
+  margin-top: 0;
+}
+
+.avatar-item::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  right: -20px;
+  width: 20px;
+  height: calc(100% + 16px);
+}
+
+.avatar-circle {
+  width: 2.375rem;
+  height: 2.375rem;
+  border-radius: 50%;
+  border: 1px solid var(--border-color);
+  background-color: #f5b8d0;
+  color: #6d3b52;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.8rem;
+}
+
+/* Both flyouts are nested INSIDE their trigger in the HTML, so hovering the */
+/* flyout itself keeps the trigger's :hover true - no separate wrapper div, */
+/* no JS needed to keep it open while the user moves onto its own items. */
+.flyout {
+  position: absolute;
+  left: 3.4rem;
+  background-color: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: 0.75rem;
+  box-shadow: var(--shadow-menu);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(10px);
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+  z-index: 1001;
+  cursor: default;
+  display: flex;
+  flex-direction: column;
+}
+
+.logo-item:hover .brand-switcher,
+.avatar-item:hover .profile-menu {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(0);
+}
+
+/* Brand switcher - the 4 brands, hoverable but not meant to lead anywhere. */
+.brand-switcher {
+  top: -0.4rem;
+  width: 17.5rem;
+  padding: 0.5rem;
+  gap: 0.25rem;
+}
+
+.brand-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+}
+
+.brand-item:hover {
+  background-color: var(--hover-bg);
+}
+
+.brand-logo {
+  width: 2rem;
+  height: 2rem;
+  flex-shrink: 0;
+  border-radius: 0.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+.brand-logo--active {
+  background-color: var(--accent-blue);
+  color: #ffffff;
+}
+
+.brand-details {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.brand-name {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.brand-plan {
+  font-size: 0.7rem;
+  color: var(--text-gray);
+}
+
+.brand-check {
+  margin-left: auto;
+  color: var(--accent-blue);
+  flex-shrink: 0;
+}
+
+/* Profile menu - name/email header plus a few plain options, no real links. */
+.profile-menu {
+  bottom: -0.4rem;
+  width: 12rem;
+  padding: 0.6rem;
+}
+
+.profile-header-card {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.3rem 0.6rem 0.6rem;
+  margin-bottom: 0.3rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.profile-avatar-small {
+  width: 1.9rem;
+  height: 1.9rem;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background-color: #f5b8d0;
+  color: #6d3b52;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.65rem;
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  overflow: hidden;
+}
+
+.profile-user-name {
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.profile-user-email {
+  font-size: 0.7rem;
+  color: var(--text-gray);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.profile-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.6rem;
+  border-radius: 0.4rem;
+  font-size: 0.85rem;
+  color: var(--text-main);
+}
+
+.profile-menu-item:hover {
+  background-color: var(--hover-bg);
+}
+
+.profile-menu-item.update-btn {
+  background-color: #f0fdf4;
+  color: #15803d;
+  font-weight: 500;
+  margin-top: 0.25rem;
+}
+
+.profile-menu-item.update-btn:hover {
+  background-color: #dcfce7;
+}
+
+.green-dot-active {
+  width: 0.4rem;
+  height: 0.4rem;
+  background-color: #16a34a;
+  border-radius: 50%;
+}
+
+.profile-logout-row {
+  margin-top: 0.25rem;
+  border-top: 1px solid var(--border-color);
+  padding-top: 0.5rem;
+}
+
+.profile-version {
+  margin-top: 0.5rem;
+  padding: 0.5rem 0.6rem 0;
+  font-size: 0.68rem;
+  color: var(--text-light);
+  text-align: left;
+}
+
+/* Page content, just enough to demonstrate the scroll/fixed behavior. */
+.page-content {
+  margin-left: 4.5rem;
+  padding: 3rem 2.5rem;
+  max-width: 40rem;
+}
+
+.page-content p {
+  line-height: 1.6;
+  color: var(--text-gray);
+  margin-top: 0.75rem;
+}
