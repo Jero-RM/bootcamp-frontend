@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dune | Netflix</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <!-- Page background peeks around the rounded card, same floating-card pattern as the Agency task. -->
+    <div class="page-shell">
+      <div class="movie-card">
+        <!-- Placeholder key art - swap for the real Dune promotional image the mockup references. -->
+        <img
+          class="backdrop"
+          src="assets/img/dune-backdrop.jpg"
+          alt="Dune cast portrait montage"
+        />
+        <!-- Fades the backdrop to black at the bottom so the white text stays readable. -->
+        <div class="backdrop-fade"></div>
+
+        <div class="card-content">
+          <header class="movie-header">
+            <div class="brand-and-nav">
+              <span class="brand-mark">N</span>
+              <nav class="movie-nav" aria-label="Movie sections">
+                <a href="#">Top Cast</a>
+                <a href="#">Photos</a>
+                <a href="#">Videos</a>
+                <a href="#">Similar Movies</a>
+              </nav>
+            </div>
+
+            <div class="header-actions">
+              <button class="icon-btn" type="button" aria-label="Share">
+                <!-- Lucide "share-2" icon (lucide.dev). -->
+                <img
+                  src="assets/icons/share.svg"
+                  width="16"
+                  height="16"
+                  alt=""
+                />
+              </button>
+              <button class="icon-btn" type="button" aria-label="Save">
+                <!-- Lucide "bookmark" icon (lucide.dev). -->
+                <img
+                  src="assets/icons/bookmark.svg"
+                  width="16"
+                  height="16"
+                  alt=""
+                />
+              </button>
+              <!-- "Sing in" matches the mockup's own text exactly, typo included. -->
+              <a class="auth-link" href="#">Login / Sing in</a>
+            </div>
+          </header>
+
+          <div class="movie-body">
+            <div class="movie-info">
+              <h1>Dune</h1>
+
+              <div class="movie-meta">
+                <span class="rating">
+                  <!-- Lucide "star" icon (lucide.dev). -->
+                  <img
+                    src="assets/icons/star.svg"
+                    width="14"
+                    height="14"
+                    alt=""
+                  />
+                  8.2 | 1055
+                </span>
+                <span class="dot" aria-hidden="true">&bull;</span>
+                <span>2h 35m</span>
+                <span class="dot" aria-hidden="true">&bull;</span>
+                <span>Action, Adventure, Drama</span>
+                <span class="dot" aria-hidden="true">&bull;</span>
+                <span>2021</span>
+              </div>
+
+              <p class="movie-desc">
+                A noble family becomes embroiled in a war for control over the
+                galaxy&rsquo;s most valuable asset while its heir becomes
+                troubled by visions of a dark future.
+              </p>
+
+              <div class="movie-actions">
+                <a class="btn-play" href="#">
+                  <!-- Lucide "play" icon (lucide.dev). -->
+                  <img
+                    src="assets/icons/play.svg"
+                    width="12"
+                    height="12"
+                    alt=""
+                  />
+                  Play Now
+                </a>
+                <a class="btn-trailer" href="#">Trailer</a>
+              </div>
+            </div>
+
+            <div class="movie-side">
+              <section class="posters-block">
+                <h2>Posters</h2>
+                <!-- The 4th thumbnail clips against the card edge, matching the mockup's carousel-peek look. -->
+                <div class="posters-row">
+                  <img
+                    src="assets/img/poster-1.jpg"
+                    width="90"
+                    height="70"
+                    alt="Dune poster 1"
+                  />
+                  <img
+                    src="assets/img/poster-2.jpg"
+                    width="90"
+                    height="70"
+                    alt="Dune poster 2"
+                  />
+                  <img
+                    src="assets/img/poster-3.jpg"
+                    width="90"
+                    height="70"
+                    alt="Dune poster 3"
+                  />
+                  <img
+                    src="assets/img/poster-4.jpg"
+                    width="90"
+                    height="70"
+                    alt="Dune poster 4"
+                  />
+                </div>
+              </section>
+
+              <section class="actors-block">
+                <h2>Actors</h2>
+                <div class="actors-row">
+                  <div class="actor">
+                    <img
+                      src="assets/img/actor-1.jpg"
+                      width="44"
+                      height="44"
+                      alt="Timoth&eacute;e Chalamet"
+                    />
+                    <span>Timoth&eacute;e Chalamet</span>
+                  </div>
+                  <div class="actor">
+                    <img
+                      src="assets/img/actor-2.jpg"
+                      width="44"
+                      height="44"
+                      alt="Rebecca Ferguson"
+                    />
+                    <span>Rebecca Ferguson</span>
+                  </div>
+                  <div class="actor">
+                    <img
+                      src="assets/img/actor-3.jpg"
+                      width="44"
+                      height="44"
+                      alt="Oscar Isaac"
+                    />
+                    <span>Oscar Isaac</span>
+                  </div>
+                  <div class="actor">
+                    <img
+                      src="assets/img/actor-4.jpg"
+                      width="44"
+                      height="44"
+                      alt="Zendaya"
+                    />
+                    <span>Zendaya</span>
+                  </div>
+                  <div class="actor">
+                    <img
+                      src="assets/img/actor-5.jpg"
+                      width="44"
+                      height="44"
+                      alt="Javier Bardem"
+                    />
+                    <span>Javier Bardem</span>
+                  </div>
+                  <!-- Decorative only, no full cast list wired up for this exercise. -->
+                  <button class="actor actor--more" type="button">
+                    <span class="view-all-circle">View<br />All</span>
+                  </button>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
