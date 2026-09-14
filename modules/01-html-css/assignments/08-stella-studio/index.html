@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stella Studio</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="logo" href="#" aria-label="Stella Studio home">
+          <!-- Custom brand mark, not from Lucide - saved as its own file since it's not built-in to any icon set. -->
+          <img
+            src="assets/icons/logo.svg"
+            width="26"
+            height="16"
+            alt=""
+            aria-hidden="true"
+          />
+          <span>Stella Studio</span>
+        </a>
+
+        <!-- Hidden on mobile, shown at the desktop breakpoint. -->
+        <nav class="main-nav" aria-label="Primary">
+          <a class="nav-link nav-link--active" href="#">Home</a>
+          <a class="nav-link" href="#">
+            Services
+            <!-- Lucide "chevron-down" icon, downloaded to assets/icons/ (lucide.dev). -->
+            <img
+              src="assets/icons/chevron-down.svg"
+              width="14"
+              height="14"
+              alt=""
+              aria-hidden="true"
+            />
+          </a>
+          <a class="nav-link" href="#">Product</a>
+          <a class="nav-link" href="#">Pricing</a>
+        </nav>
+
+        <!-- Decorative only, no menu logic wired up for this exercise. -->
+        <button class="menu-btn" type="button" aria-label="Open menu">
+          <!-- Lucide "menu" icon, downloaded to assets/icons/ (lucide.dev). -->
+          <img
+            src="assets/icons/menu.svg"
+            width="18"
+            height="18"
+            alt=""
+            aria-hidden="true"
+          />
+        </button>
+      </div>
+    </header>
+
+    <section class="hero">
+      <h1>
+        Enabling brands to flow with change in order to grow
+        <span aria-hidden="true">&#128640;</span>
+      </h1>
+
+      <div class="hero-bottom">
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#">Get Started</a>
+          <a class="btn btn-secondary" href="#">Get Quote</a>
+        </div>
+
+        <div class="hero-tags">
+          <span>/ WEB DESIGN</span>
+          <span>/ BRANDING</span>
+          <span>/ MARKETING</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mobile-first DOM order: text block first, photo+avatar block second - -->
+    <!-- .growth-media gets pulled in front of it again once the desktop grid kicks in. -->
+    <section class="growth">
+      <div class="growth-inner">
+        <div class="growth-content">
+          <h2>We propel results-driven growth</h2>
+          <p>
+            At the start of every project, we customise a detailed project plan
+            together with you to set expectations, ensure alignment, and define
+            key milestones and deliverables. Experience tells us the best
+            solutions are the ones co-ideated with clients. We incorporate your
+            ideas with our broad level of expertise to create memorable
+            experiences for your brands &amp; products.
+          </p>
+          <a class="btn btn-outline" href="#">View Detail</a>
+        </div>
+
+        <div class="growth-media">
+          <div class="growth-person">
+            <!-- Save the founder's real photo as assets/img/avatar.jpg. -->
+            <img
+              src="assets/img/avatar.jpg"
+              width="40"
+              height="40"
+              alt="Lorenzo Morena, Founder"
+            />
+            <div class="growth-person-info">
+              <p class="person-name">Lorenzo Morena</p>
+              <p class="person-role">Founder</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- White strip the photo dips into - reuses .growth-inner's column layout so the photo lines up under the avatar above. -->
+    <section class="growth-tail">
+      <div class="growth-inner">
+        <div class="growth-content" aria-hidden="true"></div>
+        <div class="growth-media">
+          <!-- The assignment allows swapping the staircase shot for any photo - save yours as assets/img/stella-photo.jpg. -->
+          <img
+            class="growth-photo"
+            src="assets/img/stella-photo.jpg"
+            width="700"
+            height="860"
+            alt="Photo representing the studio's work"
+          />
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

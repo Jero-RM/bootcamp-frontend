@@ -1,0 +1,301 @@
+:root {
+  --text-dark: #18181b;
+  --text-gray: #71717a;
+  --text-light: #9ca3af;
+  --border-color: #e4e4e7;
+  --surface-light: #f4f4f5;
+  --dark-navy: #14161f;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+body {
+  color: var(--text-dark);
+}
+
+/* --- Header --- */
+
+.site-header {
+  border-bottom: 1px solid var(--border-color);
+}
+
+.header-inner {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: var(--text-dark);
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+/* Mobile-first: the link list stays hidden until the desktop breakpoint. */
+.main-nav {
+  display: none;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  color: var(--text-light);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.nav-link--active {
+  color: var(--text-dark);
+  font-weight: 600;
+}
+
+/* Present at every breakpoint - it's the mobile menu trigger, and a persistent utility icon at desktop. */
+.menu-btn {
+  flex-shrink: 0;
+  width: 2.25rem;
+  height: 2.25rem;
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  background: none;
+  color: var(--text-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: default;
+}
+
+/* --- Buttons, shared across sections --- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 0.75rem 1.4rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background-color: var(--text-dark);
+  color: #ffffff;
+}
+
+.btn-secondary {
+  background-color: var(--surface-light);
+  color: var(--text-dark);
+}
+
+.btn-outline {
+  display: block;
+  margin: 0 auto;
+  width: fit-content;
+  background: #ffffff;
+  color: #000000;
+  font-weight: bold;
+  border: 1px solid #cccccc;
+  padding: 20px 140px;
+  align-content: center;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+/* --- Hero --- */
+
+.hero {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 3.5rem 1.5rem 3rem;
+}
+
+h1 {
+  font-size: 2.25rem;
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  max-width: 32rem;
+}
+
+.hero-bottom {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+/* Even width for both hero buttons, matching the mockup's balanced pair. */
+.hero-actions .btn {
+  min-width: 8.5rem;
+  justify-content: center;
+}
+
+.hero-tags {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  color: var(--text-light);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+/* --- Growth section --- */
+
+.growth {
+  background-color: var(--dark-navy);
+  padding: 3rem 1.5rem 9rem;
+}
+
+.growth-inner {
+  max-width: 72rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+h2 {
+  color: #ffffff;
+  font-size: 1.85rem;
+  font-weight: 700;
+  line-height: 1.2;
+  max-width: 24rem;
+}
+
+.growth-content p {
+  margin-top: 1.25rem;
+  color: var(--text-light);
+  font-size: 0.9rem;
+  line-height: 1.75;
+  max-width: 28rem;
+}
+
+.growth-content .btn-outline {
+  margin-top: 1.75rem;
+}
+
+.growth-media {
+  width: 100%;
+}
+
+.growth-person {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 1.25rem;
+}
+
+.growth-person img {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.person-name {
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.person-role {
+  color: var(--text-light);
+  font-size: 0.8rem;
+}
+
+/* --- White strip the photo dips into --- */
+
+.growth-tail {
+  background-color: #ffffff;
+  padding: 0 1.5rem 3rem;
+}
+
+/* Fixed height (not aspect-ratio) keeps the negative margin an exact, predictable value - 8rem is 40% of this 20rem. */
+.growth-photo {
+  display: block;
+  width: 100%;
+  height: 20rem;
+  object-fit: cover;
+  border-radius: 1rem;
+  margin: -8rem 0 0;
+}
+
+/* --- Desktop breakpoint --- */
+@media (min-width: 880px) {
+  .main-nav {
+    display: flex;
+    gap: 2rem;
+  }
+
+  h1 {
+    font-size: 3.25rem;
+  }
+
+  .hero-bottom {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .growth {
+    padding: 4rem 1.5rem 12rem;
+  }
+
+  .growth-tail {
+    padding-bottom: 4rem;
+  }
+
+  .growth-inner {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 3rem;
+  }
+
+  .growth-content {
+    flex: 7;
+  }
+
+  /* Pulls the photo/avatar block back in front of the text block, undoing the mobile DOM order. */
+  .growth-media {
+    order: -1;
+    flex: 5;
+  }
+
+  h2 {
+    font-size: 2.25rem;
+  }
+
+  /* -28rem is 80% of the desktop 34rem height - the photo sits mostly on the dark section, dipping only slightly into white. */
+  .growth-photo {
+    height: 34rem;
+    margin-top: -28rem;
+  }
+}
