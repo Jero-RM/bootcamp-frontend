@@ -7,6 +7,12 @@
   --card-dark: #1a1a1a;
 }
 
+@font-face {
+  font-family: "Engravers Old English BT";
+  src: url("../fonts/EngraversOldEnglishBT.otf") format("opentype");
+  font-weight: 400;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -101,10 +107,10 @@ body {
 
 .masthead {
   justify-self: center;
-  font-family: Georgia, "Times New Roman", serif;
-  font-weight: 700;
-  font-size: 1.5rem;
-  letter-spacing: -0.01em;
+  font-family: "Engravers Old English BT", Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  font-size: 1.75rem;
+  letter-spacing: 0;
 }
 
 .topbar-auth {
