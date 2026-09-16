@@ -1,0 +1,464 @@
+:root {
+  --text-main: #121212;
+  --text-muted: #8a8a8a;
+  --border-color: #e2e2e2;
+  --card-red: #c05a53;
+  --card-green: #4f8f6d;
+  --card-dark: #1a1a1a;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+}
+
+body {
+  background-color: #000000;
+  color: var(--text-main);
+}
+
+/* --- Page shell + frame: the three floating controls sit around the white card. --- */
+
+.page-shell {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1.5rem;
+}
+
+.frame {
+  position: relative;
+  width: 100%;
+  max-width: 60rem;
+}
+
+/* Decorative only, no menu/collapse/theme logic wired up for this exercise. */
+.frame-btn {
+  position: absolute;
+  background: none;
+  border: none;
+  color: #ffffff;
+  cursor: default;
+}
+
+.frame-btn--menu {
+  top: 1.75rem;
+  left: -1.75rem;
+}
+
+.frame-btn--collapse {
+  top: 50%;
+  left: -2rem;
+  transform: translateY(-50%);
+}
+
+.frame-btn--theme {
+  bottom: 1.5rem;
+  left: -1.75rem;
+}
+
+.nyt-card {
+  background-color: #ffffff;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+}
+
+/* --- Top bar --- */
+
+.topbar {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding: 1.5rem 2rem 1rem;
+}
+
+.topbar-icons {
+  display: flex;
+  gap: 1rem;
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  color: var(--text-main);
+  display: flex;
+  cursor: default;
+}
+
+.masthead {
+  justify-self: center;
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  letter-spacing: -0.01em;
+}
+
+.topbar-auth {
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.sign-in {
+  text-decoration: none;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+.subscribe-btn {
+  text-decoration: none;
+  color: var(--text-main);
+  border: 1px solid var(--text-main);
+  border-radius: 0.2rem;
+  padding: 0.4rem 0.9rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+/* --- Section nav --- */
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0.85rem 2rem;
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.today-date {
+  flex-shrink: 0;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  line-height: 1.3;
+}
+
+.nav-links {
+  flex: 1 1 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.1rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  font-size: 0.75rem;
+  color: var(--text-main);
+}
+
+.more-btn {
+  flex-shrink: 0;
+  width: 1.75rem;
+  height: 1.75rem;
+  background-color: var(--text-main);
+  color: #ffffff;
+  border: none;
+  border-radius: 0.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: default;
+}
+
+.sub-nav {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  padding: 1rem 2rem;
+}
+
+.sub-nav-current {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-right: 0.4rem;
+}
+
+.sub-nav a {
+  text-decoration: none;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.sub-nav-active {
+  color: var(--text-main) !important;
+  text-decoration: underline !important;
+  text-underline-offset: 0.2rem;
+}
+
+/* --- Content grid: featured story, latest news, fast forward --- */
+
+.content-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr 0.85fr;
+  gap: 2rem;
+  padding: 0 2rem 2rem;
+}
+
+.story-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.6rem;
+}
+
+.tag {
+  background-color: var(--text-main);
+  color: #ffffff;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.5rem;
+}
+
+.story-date {
+  color: var(--text-muted);
+  font-size: 0.7rem;
+}
+
+.continue-link {
+  display: inline-block;
+  margin-top: 0.6rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 0.2rem;
+}
+
+/* Featured story */
+
+.featured-art {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+
+.featured-story h1 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.featured-story p {
+  margin-top: 0.6rem;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+/* Latest news */
+
+.latest-news h2,
+.fast-forward h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+}
+
+.news-item {
+  margin-bottom: 1.5rem;
+}
+
+.news-item h3 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.pagination-dots {
+  display: flex;
+  gap: 0.4rem;
+  margin-top: 0.5rem;
+}
+
+.dot {
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 50%;
+  border: 1px solid var(--text-muted);
+}
+
+.dot--active {
+  background-color: var(--text-main);
+  border-color: var(--text-main);
+}
+
+/* Fast Forward */
+
+.ff-item {
+  display: flex;
+  gap: 0.85rem;
+  margin-bottom: 1.25rem;
+}
+
+.ff-text h3 {
+  font-size: 0.85rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.ff-text p {
+  margin-top: 0.4rem;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  line-height: 1.4;
+}
+
+.ff-thumb {
+  flex-shrink: 0;
+  width: 4rem;
+  height: 4rem;
+  object-fit: cover;
+  border-radius: 0.25rem;
+}
+
+.show-all-link {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 0.2rem;
+}
+
+/* --- Market snapshot --- */
+
+.market-snapshot {
+  border-top: 1px solid var(--border-color);
+  padding: 1.5rem 2rem 2rem;
+}
+
+.market-header {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.market-title {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.market-title h2 {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.market-time {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+.market-tabs {
+  flex: 1 1 auto;
+  display: flex;
+  gap: 1.25rem;
+}
+
+.market-tab {
+  text-decoration: none;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.market-tab--active {
+  color: var(--text-main);
+  font-weight: 700;
+}
+
+.overview-link {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  text-decoration: none;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.market-cards {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0.75rem;
+}
+
+/* Fixed height + space-between keeps all 6 cards the same size regardless of text length. */
+.market-card {
+  height: 6.5rem;
+  border-radius: 0.4rem;
+  padding: 0.75rem 0.85rem;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.market-card--down {
+  background-color: var(--card-red);
+}
+.market-card--up {
+  background-color: var(--card-green);
+}
+.market-card--neutral {
+  background-color: var(--card-dark);
+}
+
+.market-name {
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+.market-change {
+  margin-top: 0.4rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.market-value {
+  margin-top: 0.15rem;
+  font-size: 0.7rem;
+  opacity: 0.85;
+}
+
+.market-value span {
+  margin-left: 0.2rem;
+}
+
+.market-updated {
+  margin-top: 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.65rem;
+  opacity: 0.75;
+}
+
+.market-updated img {
+  filter: invert(1);
+}

@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The New York Times</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <!-- Black page background, with the white card and its three floating frame controls on top. -->
+    <div class="page-shell">
+      <div class="frame">
+        <!-- Decorative frame controls, positioned around the card - no menu logic wired up for this exercise. -->
+        <button
+          class="frame-btn frame-btn--menu"
+          type="button"
+          aria-label="More options"
+        >
+          <img src="assets/icons/ellipsis.svg" width="16" height="16" alt="" />
+        </button>
+        <button
+          class="frame-btn frame-btn--collapse"
+          type="button"
+          aria-label="Collapse sidebar"
+        >
+          <img src="assets/icons/pause.svg" width="16" height="16" alt="" />
+        </button>
+        <button
+          class="frame-btn frame-btn--theme"
+          type="button"
+          aria-label="Toggle theme"
+        >
+          <img src="assets/icons/moon.svg" width="16" height="16" alt="" />
+        </button>
+
+        <div class="nyt-card">
+          <header class="topbar">
+            <div class="topbar-icons">
+              <button class="icon-btn" type="button" aria-label="Search">
+                <img
+                  src="assets/icons/search.svg"
+                  width="16"
+                  height="16"
+                  alt=""
+                />
+              </button>
+              <button class="icon-btn" type="button" aria-label="Notifications">
+                <img
+                  src="assets/icons/bell.svg"
+                  width="16"
+                  height="16"
+                  alt=""
+                />
+              </button>
+            </div>
+
+            <p class="masthead">The New York Times</p>
+
+            <div class="topbar-auth">
+              <a class="sign-in" href="#">Sign In</a>
+              <a class="subscribe-btn" href="#">Subscribe</a>
+            </div>
+          </header>
+
+          <nav class="main-nav" aria-label="Sections">
+            <p class="today-date">Thursday<br />May 21, 2020</p>
+
+            <div class="nav-links">
+              <a href="#">World</a>
+              <a href="#">Politics</a>
+              <a href="#">Business</a>
+              <a href="#">Opinion</a>
+              <a href="#">Tech</a>
+              <a href="#">Science</a>
+              <a href="#">Sports</a>
+              <a href="#">Arts</a>
+              <a href="#">Books</a>
+              <a href="#">Style</a>
+              <a href="#">Food</a>
+              <a href="#">Travel</a>
+              <a href="#">Magazine</a>
+            </div>
+
+            <button class="more-btn" type="button" aria-label="More sections">
+              <img
+                src="assets/icons/ellipsis.svg"
+                width="14"
+                height="14"
+                alt=""
+              />
+            </button>
+          </nav>
+
+          <nav class="sub-nav" aria-label="Business subsections">
+            <span class="sub-nav-current">Business</span>
+            <a class="sub-nav-active" href="#">Tech</a>
+            <a href="#">Econ</a>
+            <a href="#">Media</a>
+            <a href="#">Money</a>
+            <a href="#">DealBook</a>
+          </nav>
+
+          <main class="content-grid">
+            <!-- Featured story --- -->
+            <article class="featured-story">
+              <!-- Placeholder editorial illustration - swap for the real artwork. -->
+              <img
+                class="featured-art"
+                src="assets/img/tech-illustration.gif"
+                alt="Abstract illustration accompanying the internet speeds story"
+              />
+              <div class="story-meta">
+                <span class="tag">Tech Fix</span>
+                <span class="story-date">May 20, 2020</span>
+              </div>
+              <h1>Everything You Need to Know About Slow Internet Speeds</h1>
+              <p>
+                Our crummy connections are the biggest tech headache in the
+                pandemic. Here&rsquo;s a comprehensive guide to what to do about
+                them.
+              </p>
+              <a class="continue-link" href="#">Continue Reading</a>
+            </article>
+
+            <!-- Latest news --- -->
+            <section class="latest-news">
+              <h2>Latest News</h2>
+
+              <article class="news-item">
+                <div class="story-meta">
+                  <span class="tag">The Upshot</span>
+                  <span class="story-date">May 19, 2020</span>
+                </div>
+                <h3>
+                  A Wave of Small Business Closures Is on the Way. Can
+                  Washington Stop It?
+                </h3>
+                <a class="continue-link" href="#">Continue Reading</a>
+              </article>
+
+              <article class="news-item">
+                <div class="story-meta">
+                  <span class="tag">News Analysis</span>
+                  <span class="story-date">May 19, 2020</span>
+                </div>
+                <h3>
+                  Coronavirus Shut Down the &lsquo;Experience Economy.&rsquo;
+                  Can It Come Back?
+                </h3>
+                <a class="continue-link" href="#">Continue Reading</a>
+              </article>
+
+              <!-- Decorative only, no carousel logic wired up for this exercise. -->
+              <div class="pagination-dots" aria-hidden="true">
+                <span class="dot dot--active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+              </div>
+            </section>
+
+            <!-- Fast Forward --- -->
+            <section class="fast-forward">
+              <h2>Fast Forward</h2>
+
+              <article class="ff-item">
+                <div class="ff-text">
+                  <h3>
+                    Another Grim Tally of U.S. Unemployment Is Expected: Live
+                    Business Updates
+                  </h3>
+                  <p>Live Stock Market News During the Coronavirus Pandemic</p>
+                </div>
+                <img class="ff-thumb" src="assets/img/thumb-1.jpg" alt="" />
+              </article>
+
+              <article class="ff-item">
+                <div class="ff-text">
+                  <h3>
+                    How the &lsquo;Pandemic&rsquo; Movie and Its Falsehoods
+                    Spread Widely Online
+                  </h3>
+                  <p>
+                    Conspiracy theories about the pandemic have gained
+                    more&hellip;
+                  </p>
+                </div>
+                <img class="ff-thumb" src="assets/img/thumb-2.jpg" alt="" />
+              </article>
+
+              <article class="ff-item">
+                <div class="ff-text">
+                  <h3>
+                    Joe Rogan Strikes an Exclusive, Multiyear Deal With Spotify
+                    Premium
+                  </h3>
+                  <p>
+                    The deal with Joe Rogan, a provocative podcast host
+                    with&hellip;
+                  </p>
+                </div>
+                <img class="ff-thumb" src="assets/img/thumb-3.jpg" alt="" />
+              </article>
+
+              <a class="show-all-link" href="#">Show All</a>
+            </section>
+          </main>
+
+          <!-- Market snapshot - per the assignment tip, each card skips its little trend graph. -->
+          <footer class="market-snapshot">
+            <div class="market-header">
+              <div class="market-title">
+                <h2>Market Snapshot</h2>
+                <span class="market-time">6:07 A.M.</span>
+              </div>
+
+              <div class="market-tabs">
+                <a class="market-tab market-tab--active" href="#">Futures</a>
+                <a class="market-tab" href="#">Americas</a>
+                <a class="market-tab" href="#">Europe</a>
+                <a class="market-tab" href="#">Asia</a>
+                <a class="market-tab" href="#">Commodities</a>
+              </div>
+
+              <a class="overview-link" href="#">
+                Full Market Overview
+                <img
+                  src="assets/icons/chevron-right.svg"
+                  width="14"
+                  height="14"
+                  alt=""
+                />
+              </a>
+            </div>
+
+            <div class="market-cards">
+              <div class="market-card market-card--down">
+                <div class="market-card-top">
+                  <p class="market-name">Dow Jones mini</p>
+                  <p class="market-change">-40.00</p>
+                  <p class="market-value">24394.00 <span>-0.51%</span></p>
+                </div>
+                <p class="market-updated">
+                  <img
+                    src="assets/icons/clock.svg"
+                    width="11"
+                    height="11"
+                    alt=""
+                  />7:13 AM
+                </p>
+              </div>
+              <div class="market-card market-card--up">
+                <div class="market-card-top">
+                  <p class="market-name">Nikkei 225 Future</p>
+                  <p class="market-change">+40.00</p>
+                  <p class="market-value">20580.00 <span>+0.19%</span></p>
+                </div>
+                <p class="market-updated">
+                  <img
+                    src="assets/icons/clock.svg"
+                    width="11"
+                    height="11"
+                    alt=""
+                  />7:17 AM
+                </p>
+              </div>
+              <div class="market-card market-card--up">
+                <div class="market-card-top">
+                  <p class="market-name">EUR-USD</p>
+                  <p class="market-change">+0.0014</p>
+                  <p class="market-value">1.0994 <span>+0.13%</span></p>
+                </div>
+                <p class="market-updated">
+                  <img
+                    src="assets/icons/clock.svg"
+                    width="11"
+                    height="11"
+                    alt=""
+                  />7:39 AM
+                </p>
+              </div>
+              <div class="market-card market-card--down">
+                <div class="market-card-top">
+                  <p class="market-name">FTSE 100</p>
+                  <p class="market-change">-28.80</p>
+                  <p class="market-value">24394.00 <span>-0.48%</span></p>
+                </div>
+                <p class="market-updated">
+                  <img
+                    src="assets/icons/clock.svg"
+                    width="11"
+                    height="11"
+                    alt=""
+                  />7:41 AM
+                </p>
+              </div>
+              <div class="market-card market-card--neutral">
+                <div class="market-card-top">
+                  <p class="market-name">S&amp;P 500 Mini</p>
+                  <p class="market-change">0.00</p>
+                  <p class="market-value">2956.00 <span>0%</span></p>
+                </div>
+                <p class="market-updated">
+                  <img
+                    src="assets/icons/clock.svg"
+                    width="11"
+                    height="11"
+                    alt=""
+                  />7:52 AM
+                </p>
+              </div>
+              <div class="market-card market-card--down">
+                <div class="market-card-top">
+                  <p class="market-name">WTI Crude</p>
+                  <p class="market-change">-0.66</p>
+                  <p class="market-value">34.10 <span>-0.28%</span></p>
+                </div>
+                <p class="market-updated">
+                  <img
+                    src="assets/icons/clock.svg"
+                    width="11"
+                    height="11"
+                    alt=""
+                  />7:59 AM
+                </p>
+              </div>
+            </div>
+          </footer>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
