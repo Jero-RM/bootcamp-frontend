@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather — 7 Day Forecast</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <div class="phone">
+        <div class="screen screen--forecast">
+          <div class="forecast-panel">
+            <header class="app-header">
+              <!-- Back link returns to the home/today screen -->
+              <a class="icon-btn" href="index.html" aria-label="Back to today">
+                <img
+                  src="assets/icons/chevron-left.svg"
+                  width="16"
+                  height="16"
+                  alt=""
+                />
+              </a>
+              <h1 class="panel-title">7 days</h1>
+              <button class="icon-btn" type="button" aria-label="More options">
+                <img
+                  src="assets/icons/ellipsis.svg"
+                  width="16"
+                  height="16"
+                  alt=""
+                />
+              </button>
+            </header>
+
+            <section class="tomorrow">
+              <div>
+                <p class="tomorrow-label">Tomorrow</p>
+                <p class="tomorrow-temp">
+                  20<span class="temp-low">/17&deg;</span>
+                </p>
+                <p class="tomorrow-desc">Rainy - Cloudy</p>
+              </div>
+              <img
+                class="tomorrow-icon"
+                src="assets/icons/cloud-rain.svg"
+                width="90"
+                height="90"
+                alt="Rainy and cloudy"
+              />
+            </section>
+
+            <section
+              class="metrics metrics--bordered"
+              aria-label="Tomorrow's conditions"
+            >
+              <div class="metric">
+                <img
+                  src="assets/icons/wind.svg"
+                  width="18"
+                  height="18"
+                  alt=""
+                />
+                <strong>9 km/h</strong>
+                <span>Wind</span>
+              </div>
+              <div class="metric">
+                <img
+                  src="assets/icons/droplets.svg"
+                  width="18"
+                  height="18"
+                  alt=""
+                />
+                <strong>31%</strong>
+                <span>Humidity</span>
+              </div>
+              <div class="metric">
+                <img
+                  src="assets/icons/cloud-rain.svg"
+                  width="18"
+                  height="18"
+                  alt=""
+                />
+                <strong>93%</strong>
+                <span>Chance of rain</span>
+              </div>
+            </section>
+          </div>
+
+          <ul class="day-list">
+            <li class="day-row">
+              <span class="day-name">Mon</span>
+              <span class="day-status"
+                ><img
+                  src="assets/icons/cloud-rain.svg"
+                  width="16"
+                  height="16"
+                  alt=""
+                />Rainy</span
+              >
+              <span class="day-range"
+                >+20&deg; <span class="fade">+14&deg;</span></span
+              >
+            </li>
+            <li class="day-row">
+              <span class="day-name">Tue</span>
+              <span class="day-status"
+                ><img
+                  src="assets/icons/cloud-rain.svg"
+                  width="16"
+                  height="16"
+                  alt=""
+                />Rainy</span
+              >
+              <span class="day-range"
+                >+22&deg; <span class="fade">+16&deg;</span></span
+              >
+            </li>
+            <li class="day-row">
+              <span class="day-name">Wed</span>
+              <span class="day-status"
+                ><img
+                  src="assets/icons/cloud-lightning.svg"
+                  width="16"
+                  height="16"
+                  alt=""
+                />Storm</span
+              >
+              <span class="day-range"
+                >+19&deg; <span class="fade">+13&deg;</span></span
+              >
+            </li>
+            <li class="day-row">
+              <span class="day-name">Thu</span>
+              <span class="day-status"
+                ><img
+                  src="assets/icons/cloud.svg"
+                  width="16"
+                  height="16"
+                  alt=""
+                />Slow</span
+              >
+              <span class="day-range"
+                >+18&deg; <span class="fade">+12&deg;</span></span
+              >
+            </li>
+            <li class="day-row">
+              <span class="day-name">Fri</span>
+              <span class="day-status"
+                ><img
+                  src="assets/icons/cloud-lightning.svg"
+                  width="16"
+                  height="16"
+                  alt=""
+                />Thunder</span
+              >
+              <span class="day-range"
+                >+23&deg; <span class="fade">+19&deg;</span></span
+              >
+            </li>
+            <li class="day-row">
+              <span class="day-name">Sat</span>
+              <span class="day-status"
+                ><img
+                  src="assets/icons/cloud-rain.svg"
+                  width="16"
+                  height="16"
+                  alt=""
+                />Rainy</span
+              >
+              <span class="day-range"
+                >+25&deg; <span class="fade">+17&deg;</span></span
+              >
+            </li>
+            <li class="day-row">
+              <span class="day-name">Sun</span>
+              <span class="day-status"
+                ><img
+                  src="assets/icons/cloud-lightning.svg"
+                  width="16"
+                  height="16"
+                  alt=""
+                />Storm</span
+              >
+              <span class="day-range"
+                >+21&deg; <span class="fade">+18&deg;</span></span
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
