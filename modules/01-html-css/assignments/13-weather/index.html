@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather by Jero Rm</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <div class="phone">
+        <div class="screen screen--home">
+          <header class="app-header">
+            <button class="icon-btn" type="button" aria-label="Menu">
+              <img src="assets/icons/grip.svg" width="16" height="16" alt="" />
+            </button>
+            <div class="location">
+              <p class="location-name">
+                <img
+                  src="assets/icons/map-pin.svg"
+                  width="14"
+                  height="14"
+                  alt=""
+                />
+                Minsk
+              </p>
+              <span class="status-tag">Updating</span>
+            </div>
+            <button class="icon-btn" type="button" aria-label="More options">
+              <img
+                src="assets/icons/ellipsis.svg"
+                width="16"
+                height="16"
+                alt=""
+              />
+            </button>
+          </header>
+
+          <section class="hero">
+            <img
+              class="hero-icon"
+              src="assets/icons/cloud-lightning.svg"
+              width="120"
+              height="120"
+              alt="Thunderstorm"
+            />
+            <p class="hero-temp">21<span>&deg;</span></p>
+            <p class="hero-desc">Thunderstorm</p>
+            <p class="hero-date">Monday, 17 May</p>
+          </section>
+
+          <section class="metrics" aria-label="Current conditions">
+            <div class="metric">
+              <img src="assets/icons/wind.svg" width="18" height="18" alt="" />
+              <strong>13 km/h</strong>
+              <span>Wind</span>
+            </div>
+            <div class="metric">
+              <img
+                src="assets/icons/droplets.svg"
+                width="18"
+                height="18"
+                alt=""
+              />
+              <strong>24%</strong>
+              <span>Humidity</span>
+            </div>
+            <div class="metric">
+              <img
+                src="assets/icons/cloud-rain.svg"
+                width="18"
+                height="18"
+                alt=""
+              />
+              <strong>87%</strong>
+              <span>Chance of rain</span>
+            </div>
+          </section>
+
+          <section class="hourly">
+            <div class="hourly-head">
+              <h2>Today</h2>
+              <!-- Real page navigation to the forecast screen, no JS or hidden-input tricks needed -->
+              <a class="days-link" href="weather-forecast.html">
+                7 days
+                <img
+                  src="assets/icons/chevron-right.svg"
+                  width="12"
+                  height="12"
+                  alt=""
+                />
+              </a>
+            </div>
+            <div class="hourly-grid">
+              <div class="hour-card">
+                <span class="hour-temp">23&deg;</span>
+                <img
+                  src="assets/icons/cloud.svg"
+                  width="22"
+                  height="22"
+                  alt="Cloudy"
+                />
+                <span class="hour-time">10:00</span>
+              </div>
+              <!-- Current hour stays highlighted to match the mockup -->
+              <div class="hour-card hour-card--active">
+                <span class="hour-temp">21&deg;</span>
+                <img
+                  src="assets/icons/cloud-lightning.svg"
+                  width="22"
+                  height="22"
+                  alt="Thunderstorm"
+                />
+                <span class="hour-time">11:00</span>
+              </div>
+              <div class="hour-card">
+                <span class="hour-temp">22&deg;</span>
+                <img
+                  src="assets/icons/cloud-rain.svg"
+                  width="22"
+                  height="22"
+                  alt="Rainy"
+                />
+                <span class="hour-time">12:00</span>
+              </div>
+              <div class="hour-card">
+                <span class="hour-temp">19&deg;</span>
+                <img
+                  src="assets/icons/cloud-lightning.svg"
+                  width="22"
+                  height="22"
+                  alt="Storm"
+                />
+                <span class="hour-time">01:00</span>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

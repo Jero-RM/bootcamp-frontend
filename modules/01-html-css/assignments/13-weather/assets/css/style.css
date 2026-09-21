@@ -1,0 +1,349 @@
+/* Design tokens shared by both screens */
+:root {
+  --sky-top: #2ca1fe;
+  --sky-mid: #1778f2;
+  --navy: #0b111e;
+  --accent-blue: #1a88ff;
+  --white: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #6ba1ff, #3a5fd9);
+}
+
+/* Centers the phone mockup on the page, like the reference image */
+.page-shell {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1.5rem;
+}
+
+/* Phone bezel */
+.phone {
+  width: min(23rem, 100%);
+  background-color: var(--navy);
+  border-radius: 2.75rem;
+  padding: 0.6rem;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+}
+
+.screen {
+  border-radius: 2.25rem;
+  overflow: hidden;
+  min-height: 42rem;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- Shared header + metrics --- */
+
+.app-header {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  padding: 1.75rem 1.5rem 0;
+}
+
+.icon-btn {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.icon-btn:hover {
+  background-color: rgba(255, 255, 255, 0.22);
+}
+
+.metrics {
+  display: flex;
+  justify-content: space-between;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 1.25rem;
+  padding: 1rem;
+  margin: 1.5rem;
+}
+
+.metric {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  text-align: center;
+  color: var(--white);
+}
+
+.metric strong {
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.metric span {
+  font-size: 0.65rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* --- Home screen --- */
+
+.screen--home {
+  background: linear-gradient(to bottom, var(--sky-top) 0%, var(--sky-mid) 55%, var(--navy) 92%);
+}
+
+.location {
+  text-align: center;
+}
+
+.location-name {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--white);
+}
+
+.status-tag {
+  display: inline-block;
+  margin-top: 0.3rem;
+  font-size: 0.65rem;
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 0.15rem 0.65rem;
+  border-radius: 1rem;
+  color: var(--white);
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 1.25rem;
+}
+
+/* Soft glow behind the hero icon, echoing the mockup's illustration */
+.hero-icon {
+  filter: drop-shadow(0 0 2rem rgba(255, 255, 255, 0.35));
+  margin-bottom: 0.5rem;
+}
+
+.hero-temp {
+  font-size: 5rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--white);
+}
+
+.hero-temp span {
+  font-size: 2.5rem;
+  font-weight: 400;
+  vertical-align: top;
+}
+
+.hero-desc {
+  font-size: 1.1rem;
+  color: var(--white);
+  margin-top: 0.25rem;
+}
+
+.hero-date {
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 0.25rem;
+}
+
+.hourly {
+  margin-top: auto;
+  padding: 1.5rem 1.5rem 1.75rem;
+}
+
+.hourly-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.hourly-head h2 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--white);
+}
+
+.days-link {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.75);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.days-link:hover {
+  color: var(--white);
+}
+
+.hourly-grid {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.hour-card {
+  flex: 1;
+  background-color: rgba(255, 255, 255, 0.08);
+  border-radius: 1rem;
+  padding: 0.85rem 0.4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Guideline: hourly cards turn blue on hover; the current hour stays highlighted the same way */
+.hour-card:hover,
+.hour-card--active {
+  background-color: var(--accent-blue);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(26, 136, 255, 0.4);
+}
+
+.hour-temp {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--white);
+}
+
+.hour-time {
+  font-size: 0.65rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* --- Forecast (7 days) screen --- */
+
+.screen--forecast {
+  background-color: var(--navy);
+}
+
+.forecast-panel {
+  background: linear-gradient(to bottom, var(--sky-top), var(--sky-mid));
+  border-radius: 0 0 2rem 2rem;
+  padding-bottom: 1.5rem;
+}
+
+.forecast-panel .app-header {
+  padding-top: 1.75rem;
+}
+
+.panel-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--white);
+  text-align: center;
+}
+
+.tomorrow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 1.5rem 1.5rem 0;
+}
+
+.tomorrow-label {
+  font-size: 0.85rem;
+  color: var(--white);
+}
+
+.tomorrow-temp {
+  font-size: 2.75rem;
+  font-weight: 700;
+  color: var(--white);
+}
+
+.temp-low {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.tomorrow-desc {
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.tomorrow-icon {
+  filter: drop-shadow(0 0 1.5rem rgba(255, 255, 255, 0.3));
+}
+
+.metrics--bordered {
+  background: none;
+  backdrop-filter: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 0;
+  margin: 1.5rem 1.5rem 0;
+  padding: 1rem 0 0;
+}
+
+.day-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  padding: 1.75rem 1.5rem;
+  overflow-y: auto;
+}
+
+.day-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: var(--white);
+}
+
+.day-name {
+  width: 2.5rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.day-status {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: 1rem;
+}
+
+.day-range {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.fade {
+  color: rgba(255, 255, 255, 0.4);
+}
